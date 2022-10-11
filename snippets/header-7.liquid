@@ -1,0 +1,116 @@
+<header class="header-type-2 header-type-7">
+  {%- include "header-iconmenu" -%}
+  <div class="background-header"></div>
+  <div class="slider-header">
+    <!-- Top of pages -->
+    <div id="top" class="{%- if settings.header_layout == '1' -%}full-width{%- elsif settings.header_layout == '4' -%}fixed3 fixed2{%- elsif settings.header_layout == '3' -%}fixed2{%- else -%}fixed{%- endif -%}">
+      <div class="background-top"></div>
+      <div class="background">
+        <div class="shadow"></div>
+        <div class="pattern">
+          <div class="top-bar">
+            <div class="container">
+              <!-- Links -->
+              <ul class="menu">
+
+                {%- if shop.customer_accounts_enabled -%}
+                <li><a href="/account">{{ 'general.top.my_account' | t }}</a></li>
+                {%- endif -%}
+
+                <li><a href="/cart">{{ 'general.cart_info.cart' | t }}</a></li>
+                <li><a href="/checkout">{{ 'general.cart_info.checkout' | t }}</a></li>
+              </ul>
+              <!-- Currency -->
+              {%- if settings.show_multiple_currencies -%}
+              {%- include 'currencies-switcher' -%}
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <!-- Header Left -->
+              <div class="col-sm-4" id="header-left">
+                
+                <div class="mobile-view">
+                  {% form 'currency' %}
+                  {{ form | currency_selector }}
+                  {% endform %}
+                </div>
+                
+                <!-- Logo -->
+                <div class="logo">
+                  <a href="{{shop.url}}" title="{{ shop.name | escape }}">
+                    <img src="{{ 'logo.png' | asset_url }}" title="{{ shop.name | escape }}" alt="{{ shop.name | escape }}" />
+                  </a>
+                </div>
+              </div>
+              <!-- Header Right -->
+              <div class="col-sm-8 orderable" id="header-right">
+                {%- section 'header-top-block' -%}
+                <!-- Search -->
+                <form action="/search" method="get" role="search" class="search_form">
+                <!--<form action="/search" method="get" role="search" class="search_form" onsubmit="this.q.value">-->
+                  <div class="button-search"></div>
+                  <input type="search" name="q"  class="input-block-level search-query" id="search_query" placeholder="{{ 'search.general.placeholder' | t }}">
+                  {% comment %} <input type="search" class="input-block-level search-query" id="searchtext" placeholder="{{ 'search.general.placeholder' | t }}"> {% endcomment %}
+                  {% comment %} <div id="autocomplete-results" class="autocomplete-results"></div> {% endcomment %}
+                 <!-- <input type="hidden" name="type" value="product" /> -->
+                </form>
+                {% include 'wishlist-menu-button' %}
+                <script>
+                 /*
+                  $('.search_form').on('submit', function(e) {
+                    e.preventDefault()
+                    this.submit()
+                    $("#search_query").val("{{ 'search.general.placeholder' | t }}");
+                  })
+                  */
+                </script>
+                {%- if shop.customer_accounts_enabled -%}
+                <a href="/account" class="my-account">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 25.37" class="my-account__icon" aria-labeledby="tm-icon-login" role="img">
+                    <title id="tm-icon-login">Access Your Account</title>
+                    <path class="tm-icon-login-1" d="M13,12.8a6.15,6.15,0,1,1,6.15-6.15A6.16,6.16,0,0,1,13,12.8ZM13,1.5a5.15,5.15,0,1,0,5.15,5.15A5.16,5.16,0,0,0,13,1.5Z"/>
+                    <path class="tm-icon-login-1" d="M12.91,24.88A41.34,41.34,0,0,1,2.75,23.62l-.34-.09-.53-5.29c-.12-1.1,0-1.24.12-1.36a4.35,4.35,0,0,1,.86-.54L9,13l.24.14a7.6,7.6,0,0,0,7.5,0L17,13l.72.39,5.42,3c1,.53,1,.76,1,.91h0a8.58,8.58,0,0,1-.05,1l-.53,5.26-.34.09A41.19,41.19,0,0,1,12.91,24.88ZM3.33,22.73a41,41,0,0,0,19.32,0l.46-4.57c0-.22,0-.44.05-.59a4.41,4.41,0,0,0-.52-.33L17,14.13a8.6,8.6,0,0,1-8,0L3.34,17.21l-.51.3c0,.15,0,.38,0,.62Z"/>
+                  </svg>
+                </a>
+                {%- endif -%}
+                {%- include 'cartblock' with 'header' -%}
+              </div>
+            </div>
+          </div>
+
+          {%- assign megamenu_type_having_2ndMenu = '4,5,6,9,14,19,29' | split: ',' -%}
+          {%- if megamenu_type_having_2ndMenu contains settings.advanced_megamenu_type -%}
+          <div class="container container-megamenu2 orderable">
+            {%- endif -%}
+            <!-- Menu -->
+            <div class="megamenu-background">
+              <div class="">
+                <div class="overflow-megamenu container">
+                  <div class="row mega-menu-modules">
+                    {%- section 'header-menu1' -%}
+                    {%- section 'header-menu2' -%}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- if megamenu_type_having_2ndMenu contains settings.advanced_megamenu_type -%}
+          </div>
+          {%- endif -%}
+          {%- comment -%}MEGAMENU2{%- endcomment -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Slider -->
+  <div id="slider" class="{%- if settings.slideshow_layout == '1' -%}full-width{%- elsif settings.slideshow_layout == '4' -%}fixed3 fixed2{%- elsif settings.slideshow_layout == '3' -%}fixed2{%- else -%}fixed{%- endif -%}">
+    <div class="background-slider"></div>
+    <div class="background">
+      <div class="shadow"></div>
+      <div class="pattern orderable">
+        {%- include 'header-slideshow' -%}
+      </div>
+    </div>
+  </div>
+</header>

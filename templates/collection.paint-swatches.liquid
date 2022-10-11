@@ -1,0 +1,65 @@
+
+<!-- Paint Swatch Collection -->
+
+{%- section "collection-header-paint-swatches" -%}
+
+<section id="paint-swatch-ymm">
+  <!-- Start YMM short code -->
+  {% if page.handle != "product-result" %}
+  {% capture the_snippet_content %} 
+    {% include 'ymm-searchbox' %}{% endcapture %}
+    {% unless the_snippet_content contains "Liquid error" %}
+      {% assign searchbox_style = 'horizontal' %}<!-- eg. horizontal or vertical -->
+      {% assign searchbox_title = 'Search By Year, Make and Model' %}
+      {% include 'ymm-searchbox' %}
+  {% endunless %}
+  {% endif %}			
+  <!-- Ended YMM short code -->
+</section>
+
+{%- assign collection_limit = settings.collection_limit | default: 12 -%}
+{%- paginate collection.products by collection_limit -%}
+<div id="col-main" class="center-column content-without-background collection-page col-md-12 col-sm-12 paint-swatch-grid">
+  <div id="mfilter-content-container" class="{%- if settings.collection_list_grid == '0' -%}list{%- else -%}grid{%- endif -%}">
+    {% comment %} {%- include 'collection-filter' -%} {% endcomment %}
+    <div id="sandbox">
+      {%- if collection.products.size > 0 -%}
+      <div class="product-list">
+        {%- for product in collection.products -%}
+        {%- include 'product-item2' -%}
+        {%- endfor -%}
+      </div>
+      {%- assign grid_row = settings.collection_product_per_pow2 | plus:0 -%}
+      {%- assign grid_class = 3 -%}
+      {%- if settings.collection_product_per_pow2 == '6' -%}{%- assign grid_class = 2 -%}{%- elsif settings.collection_product_per_pow2 == '5' -%}{%- assign grid_class = 25 -%}{%- elsif settings.collection_product_per_pow2 == '3' -%}{%- assign grid_class = 4 -%}{%- endif -%}
+      <div class="product-grid">
+        <div class="row">
+          {%- assign row_fluid = 0 -%}
+          {%- for product in collection.products -%}
+            {% comment %}
+              # Show products in collection, except for those with a type of 'Paint'
+            {% endcomment %}
+            {%- if product.type == 'Paint' -%}
+              {%- assign row_fluid = row_fluid | plus:1 -%}
+              {%- assign row_temp = row_fluid | divided_by:grid_row | floor | times:grid_row -%}
+              {%- assign grid_r = row_fluid | minus:row_temp -%}
+              {%- if row_fluid > grid_row and grid_r == 1 -%}{{'</div><div class="row">'}}{%- endif -%}
+              <div class="col-sm-{{grid_class}} col-xs-6">
+                {%- include 'product-item' -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- else -%}
+      <p class="empty">{{ 'collections.general.no_products' | t }}</p>
+      <div class="buttons">
+        <div class="pull-right"><a href="{{shop.url}}" class="btn btn-primary">{{'collections.general.continue' | t}}</a></div>
+      </div>
+      {%- endif -%}
+    </div>
+    {%- include 'tm-collection-pagination' -%}
+    {%- include 'spinner' -%}
+  </div>
+</div>
+{%- endpaginate -%}

@@ -1,0 +1,24 @@
+<div class="html" {{ block.shopify_attributes }}>
+  {%- if block.settings.footer_html_heading != '' -%}
+  <h4 class="title">{{block.settings.footer_html_heading}}</h4>
+  <div class="strip-line"></div>
+  {%- endif -%}
+  {%- if block.settings.footer_html_content != '' -%}
+  <div class="content-wrapper">
+    {{ block.settings.footer_html_content }}
+  </div>
+  {% endif %}
+  <div class="clearfix">{{block.settings.footer_html_custom}}</div>
+  <div class="footer-social-wrapper">
+    <a href="https://www.facebook.com/CarzillaCalgary/">
+<!--       <div class="icon"> -->
+        <i class="fa fa-facebook"></i>
+<!--       </div> -->
+    </a>
+    <a href="https://www.instagram.com/carzillacalgary/">
+<!--       <div class="icon"> -->
+        <i class="fa fa-instagram"></i>
+<!--       </div> -->
+    </a>
+  </div>
+</div>

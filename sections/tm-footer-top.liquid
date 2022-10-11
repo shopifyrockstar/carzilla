@@ -1,0 +1,305 @@
+
+<!--<script type="text/javascript">
+  $(document).ready(function() {
+    var owl = $('.products-carousel')
+    owl.owlCarousel('destroy')
+    var owlrt0_3 = $("#header-phantom .productsCarouselrt0_3");
+    owlrt0_3.addClass('owl-carousel')
+
+    owlrt0_3.owlCarousel({ slideBy: 1 });
+  });
+</script>-->
+<div class="tmfooter">
+
+    {% comment %}
+    ** In future, probably separate this into two components.
+    {% endcomment %}
+
+    {% for block in section.blocks %}
+    {% if block.type == 'tm_contact' %}
+    <div class="tmfooter__contact">
+        <ul>
+            <li>
+                <p><a href="mailto:{{ block.settings.tmfooter_email }}" class="tmfooter__email">{{ block.settings.tmfooter_email }}</a></p>
+            </li>
+            <li class="tmfooter__phone">
+                <p><a href="tel:{{ block.settings.tmfooter_phone }}">{{ block.settings.tmfooter_phone }}</a></p>
+            </li>
+            <li class="tmfooter__address">
+                <p>{{ block.settings.tmfooter_address }}</p>
+            </li>
+            <li class="tmfooter__hours">
+                <p>{{ block.settings.tmfooter_hours }}</p>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <div class="tmfooter__links">
+      <ul class="u-list-reset">
+      {% for block in section.blocks %}
+        {% if block.type == 'tm_links' %}
+        <li class="tmfooter__item">
+            <img src="{{ block.settings.tmfooter_link_icon | img_url: 'master' }}" alt="{{ block.settings.tmfooter_link_icon.alt }}" class="tmfooter__icon" />
+            <a href="{{ block.settings.tmfooter_link_page }}" class="tmfooter__link u-title">
+                <span>{{ block.settings.tmfooter_link_title }}</span>
+                {% if block.settings.tmfooter_link_subtext %}<br>{{ block.settings.tmfooter_link_subtext }}{% endif %}
+            </a>
+        </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+
+    <div class="tmfooter__background" style="background-image: url({{ section.settings.tmfooter_background.src | img_url: 'master' }});"></div>
+</div>
+{% schema %}
+{
+    "name": "TM Footer Top",
+    "class": "tmfooterContainer",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "tmfooter_background",
+        "label": "Background Image"
+      }
+    ],
+    "blocks": [
+        {
+            "type": "tm_contact",
+            "name": "Contact Information",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Contact Details"
+                },
+                {
+                    "type": "text",
+                    "id": "tmfooter_email",
+                    "label": "Contact Email"
+                },
+                {
+                    "type": "text",
+                    "id": "tmfooter_phone",
+                    "label": "Contact Phone"
+                },
+                {
+                    "type": "textarea",
+                    "id": "tmfooter_address",
+                    "label": "Contact Address"
+                },
+                {
+                    "type": "text",
+                    "id": "tmfooter_hours",
+                    "label": "Hours of Operation"
+                }
+            ]
+        },
+        {
+            "type": "tm_links",
+            "name": "Footer Link",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Link"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "tmfooter_link_icon",
+                    "label": "Link Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "tmfooter_link_alt",
+                    "label": "ALT Text"
+                },
+                {
+                    "type": "text",
+                    "id": "tmfooter_link_title",
+                    "label": "Main Link Text"
+                },
+                {
+                    "type": "text",
+                    "id": "tmfooter_link_subtext",
+                    "label": "Extra Text"
+                },
+                {
+                    "type": "url",
+                    "id": "tmfooter_link_page",
+                    "label": "Link to Page"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+{% stylesheet 'scss' %}
+
+$grey: #888;
+$red: #DC3D27;
+
+#footer {
+  .tmfooter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 8rem;
+    font-weight: 500;
+    line-height: 2;
+    color: $grey;
+
+    @media screen and (max-width: 767px) {
+      padding: 20px 0 0;
+    }
+  }
+
+  .tmfooter p {
+    padding-bottom: 8px;
+  }
+
+  .tmfooter a {
+    color: $grey !important;
+
+    &:hover,
+    &:active {
+      color: $red !important;
+    }
+  }
+
+  .tmfooter__contact,
+  .tmfooter__links {
+    width: 30%;
+    padding: 12rem 0 60px;
+
+    @media screen and (max-width: 1280px) {
+      width: 40%;
+    }
+  }
+
+  .tmfooter__contact {
+    font-size: 16px;
+
+    // BREAKPOINT: 768px
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+  }
+
+  .tmfooter__email {
+    border-bottom: 1px solid $red;
+  }
+
+  .tmfooter__links {
+    flex: 1 0 312px;
+    font-size: 18px;
+
+    // BREAKPOINT: 768px
+    @media screen and (max-width: 767px) {
+      padding: 20px 0 10px;
+    }
+  }
+
+  .tmfooter__item {
+    display: table;
+
+    &::after {
+      clear: both;
+    }
+
+    &:not(:first-child) {
+      padding-top: 30px;
+    }
+
+    // BREAKPOINT: 768px
+    @media screen and (max-width: 767px) {
+      margin: 0 auto;
+    }
+  }
+
+  .tmfooter__icon {
+    float: left;
+    max-width: 32px;
+    margin-right: 16px;
+  }
+
+  .tmfooter__link {
+    display: block;
+    position: relative;
+    padding-right: 40px;
+    float: right;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      transition: 0.3s ease;
+    }
+
+    &::before {
+      right: 16px;
+      bottom: 0px;
+      width: 2px;
+      height: 36px;
+      background-color: $red;
+      transform: translate(-8px, 0) rotate(30deg);
+    }
+
+    &::after {
+      right: 0;
+      bottom: 9px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid $grey;
+      border-top: none;
+      border-left: none;
+      transform: translate(-8px, 0) rotate(-45deg);
+    }
+
+    // STATE
+    &:hover,
+    &:active {
+      &::before {
+        transform: translate(0, 0) rotate(30deg);
+      }
+    }
+    &:hover,
+    &:active {
+      &::after {
+        transform: translate(0, 0) rotate(-45deg);
+      }
+    }
+
+    // BREAKPOINT 360px
+    @media screen and (max-width: 360px) {
+      span {
+        display: inline-block;
+        max-width: 139px;
+      }
+    }
+  }
+
+  .tmfooter__background {
+    width: 40%;
+    height: auto;
+    align-self: stretch;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+
+    @media screen and (max-width: 1280px) {
+      width: 20%;
+    }
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
+{% endstylesheet %}

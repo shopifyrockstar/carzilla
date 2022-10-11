@@ -1,0 +1,43 @@
+<div class="custom-widget-wrapper{%- if section.settings.visible_on_mobile == false -%}{{" hidden-xs"}}{%- endif-%}" data-section-id="{{ section.id }}" data-section-type="custom-widget">
+<h3>{{ section.settings.brand_list_title }}</h3>
+
+{% for collection in collections %}
+<ul class="">
+  {% if collection.title contains 'Brand' %}
+  <li>  <a href="{{ collection.url }}">  {{ collection.title | remove: "Brand:"  }}</a> </li>
+{% endif %}
+  </ul>
+{% endfor %}
+</div>
+{% schema %}
+  {
+    "name": "sBrand List",
+    "class": "brand_list",
+    "settings": [
+        {
+          "type": "checkbox",
+          "id": "visible_on_mobile",
+          "label": "Display on Mobile"
+        },
+        {
+          "type": "header",
+          "content": "Brand List"
+        },
+        {
+          "type": "text",
+          "id": "brand_list_title",
+          "label": "Title"
+        }
+    ],
+    "presets": [
+      {
+        "name": "sBrand List",
+        "category": "Content",
+        "settings": {
+          "visible_on_mobile": true,
+          "brand_list_title": "Brand List"
+        }
+      }
+    ]
+  }
+{% endschema %}

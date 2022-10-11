@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-12"> {%- if settings.product_bottom_html and settings.product_bottom_html_content != '' -%}
+    {{settings.product_bottom_html_content}}
+    {%- endif -%}
+
+{%- comment -%} If current product is a paint swatch, show touch-up kits collection {%- endcomment -%}
+{% if product.type == 'Paint' %}
+    <div class="filter-product">
+      <div class="filter-tabs">
+        <div class="bg-filter-tabs">
+          <div class="bg-filter-tabs2 clearfix">
+            <ul id="tabProduct">
+              <li class="active"><a href="#product-related">DIY Kits</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content clearfix">
+        <div class="tab-pane active" id="product-related">
+          {% if collections.paint-touch-up-kits.products.size > 4 %}
+          <a class="next-button" href="javascript:void(0);" id="myCarouselRelated_next"><span></span></a>
+          <a class="prev-button" href="javascript:void(0);" id="myCarouselRelated_prev"><span></span></a>
+          {% endif %}
+          <div class="box-product">
+            <div id="myCarouselRelated" class="product-grid carousel slide">
+              <div class="carousel-inner">
+                {%- for product in collections.paint-touch-up-kits.products -%}
+                <div class="col-sm-2 col-xs-6">
+                  {%- include 'product-item' -%}
+                </div>
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        </div>
+{% endif %}
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<header class="c-header contact">
+  <h1 class="c-title">Contact</h1>
+  <h2 class="c-subtitle">The <span class="t-red">Carzilla</span> Team</h2>
+  <div class="t-md">
+    {{page.content}}
+  </div>
+</header>
+
+<div id="content" class="col-md-12 center-column content-with-background contact">
+  <div class="tm-contact__body row">
+    <div class="col-md-8 col-sm-12">
+      {%- form 'contact' -%}
+      {%- if form.posted_successfully? -%}
+      <div class="success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{'contact.form.post_success' | t}}
+      </div>
+      {%- endif -%}
+
+      {%- if form.errors -%}
+      <div class="warning">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{form.errors | default_errors}}
+      </div>
+      {%- endif -%}
+
+      <fieldset class="form-horizontal">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 left first-name">
+            <label class="u-visually-hidden" for="first_name">
+              <span class="">First Name:</span>
+            </label>
+            <input required="required" type="text" id="first_name" class="form-control" value="{%- if form.first_name -%}{{form.first_name}}{%- elsif customer -%}{{customer.first_name}}{%- endif -%}" name="contact[first name]" placeholder="First" />
+          </div>
+          <div class="col-md-6 col-sm-12 right last-name">
+            <label class="u-visually-hidden" for="last_name">
+              <span class="">Last Name:</span>
+            </label>
+            <input required="required" type="text" id="last_name" class="form-control" value="{%- if form.last_name -%}{{form.last_name}}{%- elsif customer -%}{{customer.last_name}}{%- endif -%}" name="contact[last name]" placeholder="Last" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+              <label class="u-visually-hidden" for="email">
+                  <span class="">Email:</span>
+              </label>
+              <input required="required" type="email" id="email" class="form-control" value="{%- if form.email -%}{{form.email}}{%- elsif customer -%}{{customer.email}}{%- endif -%}" name="contact[email]" placeholder="Email" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+              <label class="u-visually-hidden" for="subject">
+                  <span class="">Email Subject:</span>
+              </label>
+              <input required="required" type="text" id="subject" class="form-control" name="contact[subject]" placeholder="Subject" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+              <label class="u-visually-hidden" for="message">
+                  <span class="">Message:</span>
+              </label>
+              <textarea required="required" id="message" rows="10" class="form-control" name="contact[body]" placeholder="Message">{{form.body}}</textarea>
+          </div>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <div class="tm-submit col-md-12 col-sm-12">
+          <input class="btn btn-primary" type="submit" value="{{'contact.form.submit' | t}}" />
+          <i class="tm-submit__icon tm-arrow-icon"></i>
+        </div>
+      </div>
+      {%- endform -%}
+    </div>
+    <div class="contact-info col-md-4 col-sm-12">
+        <ul class="contact-info__list">
+            <li class="contact-info__item">
+                <a href="mailto:info@carzilla.ca" class="contact-info__email">info@carzilla.ca</a>
+            </li>
+            <li class="contact-info__item">
+                <a href="tel:8778059198">(877) 805-9198</a>
+            </li>
+            <li class="contact-info__item">
+                Unit 146 &ndash; 239 Mayland Place NE<br>
+                Calgary, AB, T2E 7Z8
+            </li>
+            <li class="contact-info__item">
+                Mon&ndash;Fri: <em>10am&ndash;6pm (MT)</em><br>
+                Sat: <em>10am&ndash;4pm (MT)</em>
+            </li>
+        </ul>
+    </div>
+  </div>
+</div>
+<div class="tm-contact__map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d20058.571334626842!2d-114.0341745!3d51.0656165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537165255507822d%3A0x248065a8b007779!2sCARZILLA!5e0!3m2!1sen!2sca!4v1551810717997" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>

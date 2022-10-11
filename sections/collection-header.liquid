@@ -1,0 +1,44 @@
+<header class="products--all header c-header col-md-12 col-sm-12 t-center">
+    <h1 class="products__title header__title c-title">{{ section.settings.title }}</h1>
+    <h2 class="products__subtitle c-subtitle">{{ section.settings.subtitle }}</h2>
+    <p class="t-poppins t-bold t-tracking t-md">{{ section.settings.description }}</p>
+</header>
+  {% comment %}
+  {%- if section.blocks.size > 0 -%}
+  	{%- for block in section.blocks -%}
+  		{%- if block.type == 'custom_html' -%}
+          <div class="html_wrapper" {{ block.shopify_attributes }}>
+            {{block.settings.html_content}}
+          </div>
+  		{%- else -%}
+  			<div class="box" {{ block.shopify_attributes }}>
+              <div class="box-content">
+                {{pages[block.settings.page_content].content}}
+              </div>
+            </div>
+  		{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {% endcomment %}
+{% schema %}
+  {
+    "name": "Collection Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Quick Description"
+      }
+	  ]
+  }
+{% endschema %}

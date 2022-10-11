@@ -1,0 +1,48 @@
+<div class="custom-widget-wrapper{%- if section.settings.visible_on_mobile == false -%}{{" hidden-xs"}}{%- endif-%}" data-section-id="{{ section.id }}" data-section-type="custom-widget">
+<h3>{{ section.settings.brand_list_title }}</h3>
+
+{% for collection in collections %}
+<ul class="brand-list">
+{% unless collection.handle == 'frontpage' or collection.handle == 'all' %}
+  <li class="brand-list__item">
+    <a href="{{ collection.url }}">
+      <img class = "lazyload" data-expand = "-5" data-src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }} Brand Logo" />
+      
+      {{ collection.handle }}
+    </a>
+  </li>
+{% endunless %}
+{% endfor %}
+</div>
+{% schema %}
+  {
+    "name": "Brand List",
+    "class": "brand_list",
+    "settings": [
+        {
+          "type": "checkbox",
+          "id": "visible_on_mobile",
+          "label": "Display on Mobile"
+        },
+        {
+          "type": "header",
+          "content": "Brand List"
+        },
+        {
+          "type": "text",
+          "id": "brand_list_title",
+          "label": "Title"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Brand List",
+        "category": "Content",
+        "settings": {
+          "visible_on_mobile": true,
+          "brand_list_title": "Brand List"
+        }
+      }
+    ]
+  }
+{% endschema %}

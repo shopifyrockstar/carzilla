@@ -1,0 +1,29 @@
+div.snize-ac-results .snize-add-to-cart-button {
+  border-radius: 3px;
+  background-color: #0288D1;
+  color: #fff;
+  font-size: 15px;
+  line-height: 21px;
+  min-height: 21px;
+  padding: 5px 10px;
+  margin-left: 230px;
+
+
+}
+
+div.snize-ac-results .size-button-view-cart.snize-add-to-cart-button {
+  background-color: #56AD6A;
+}
+
+
+@media (max-width: 1024px){
+
+  div.snize-ac-results .snize-add-to-cart-button {
+    min-width: 150px;
+    margin-left: 180px;
+  }
+}
+
+div.snize-ac-results .snize-reviews {
+  max-width: 130px;
+}

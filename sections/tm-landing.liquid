@@ -1,0 +1,39 @@
+<section id="{{ section.id }}" class="u-full-bleed tm-landing" style="background: #FFF url({{ section.settings.tm_landing_image.src | img_url: 'master' }}) center top no-repeat; background-size: cover;">
+  <header class="tm-landing__header">
+    <hgroup class="tm-landing__wrapper">
+      <h1 class="tm-landing__title">{%- if section.settings.tm_landing_title %}{{ section.settings.tm_landing_title }}{% else %}Boutique<br><span class="t-red">Detailing</span> Supplies{% endif %}</h1>
+      <p class="tm-landing__strapline">{%- if section.settings.tm_landing_subtitle -%}{{ section.settings.tm_landing_subtitle }}{%- else -%}Find quality detailing supplies and guidance you’ve been looking for.{%- endif -%}</p>
+      <a class="tm-landing__button" href="/collections/all-products">View Products</a>
+    </hgroup>
+  </header>
+</section>
+
+{% schema %}
+{
+  "name": "TM Landing",
+  "class": "tm_landing",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "tm_landing_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "tm_landing_title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "tm_landing_subtitle",
+      "label": "Subtitle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TM Landing",
+      "category": "banners"
+    }
+  ]
+}
+{% endschema %}

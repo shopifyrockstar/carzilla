@@ -1,0 +1,69 @@
+<script class="cartFlagX"></script>{%- if cartblock == 'header' -%}
+<div id="cart_block" class="dropdown">
+  <div class="cart-heading dropdown-toogle" data-hover="dropdown" data-toggle="dropdown">
+    <i class="cart-count"><span class="total_count_ajax">{{ cart.item_count }}</span></i>
+    <i class="cart-icon">
+      {% comment %} <img src="{{ 'icon-cart-hover.png' | asset_url }}" class="cart-icon-hover" alt="" /> {% endcomment %}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 25.37">
+        <defs><style>.cls-1{fill:#18191c;}.cls-2{fill:none;}</style></defs>
+        <path class="tm-icon-cart cls-1" d="M18.45,1.19,17,1.89l3,6.32H5.71l3-6.32-1.46-.7-3.32,7H.77l4,16H21.19l4-16H21.77ZM10.57,15.33V9.83h4.86v5.5ZM15.43,17v5.61H10.57V17ZM9,9.83v5.5H4.24L2.85,9.83ZM4.65,17H9v5.61H6.07Zm15.28,5.61H17V17h4.31Zm1.83-7.23H17V9.83h6.11Z"/>
+        <rect class="cls-2" width="26" height="25.37"/>
+      </svg>
+    </i>
+    {% comment %}
+    <p>
+      <strong id="total_price_ajax">
+        <span class="total_price"><span class="money"><span style="display:none" class="tdf-cart-total-flag"></span>{{ cart.total_price | money }}</span></span>
+      </strong>
+    </p>
+    {% endcomment %}
+  </div>
+  <div class="dropdown-menu" id="cart_content">
+    <div class="cart_content_ajax">
+      {%- if cart.items == empty -%}
+      <div class="empty">{{ 'general.cart_info.cart_empty_html' | t }}</div>
+      {%- else -%}
+      <div class="mini-cart-info">
+        <table>
+          <tbody>
+            {%- for item in cart.items -%}
+            <tr>
+              <td class="image">		        
+                <a href="{{item.url }}">
+                  <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" /></a>
+              </td>
+              <td class="name">
+                <a href="{{item.url }}">{{ item.product.title }}<span class="tdf-cart-item-t"></span></a>
+                <div>
+                  {%- if item.product.variants.size > 1 -%}
+                  <small>{{ item.variant.title }}</small>
+                  {%- endif -%}
+                </div>
+              </td>
+              <td class="quantity">{{ item.quantity }}</td>
+              <td class="total"><span class="money"><span class=tdf-cart-item-p-p>{{ item.price | money }}</span></span></td>
+              <td class="remove"><a href="javascript:void(0)" onclick="Shopify.removeItem({{item.variant_id}})" title="{{'general.cart_info.remove_this_item' | t  | escape}}">x</a></td>
+            </tr>
+			{%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+      <div class="mini-cart-total">
+        <table>
+          <tbody>
+            <tr>
+              <td class="right"><b>{{ 'general.cart_info.sub_total' | t }}</b></td>
+              <td class="right"><span class="money"><span style="display:none" class="tdf-cart-total-flag"></span>{{ cart.total_price | money }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="checkout">
+        <a href="/cart" class="button btn-default">{{ 'general.cart_info.view_shopping_bag' | t }}</a>
+        <a href="/checkout" id="cart_content_checkout" class="button">{{ 'general.cart_info.checkout' | t }}</a>
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}

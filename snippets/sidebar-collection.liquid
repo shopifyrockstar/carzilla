@@ -1,0 +1,212 @@
+{%- if settings.header_always_show_vermenu_cat -%}
+<div id="vermenu_cat_gap" class="hidden-xs hidden-sm"></div>
+{%- endif -%}
+{%- comment -%}----- All Collections -----{%- endcomment -%}
+{%- if settings.sb_collection_all -%}
+{%- capture category_box_class -%}{%- if settings.advanced_category_box == '4' -%}{{' category-box-type-4 category-box-type-2'}}{%- elsif settings.advanced_category_box == '3' -%}{{' category-box-type-3 category-box-type-2'}}{%- elsif settings.advanced_category_box == '2' -%}{{' category-box-type-2'}}{%- endif -%}{%- endcapture -%}
+<div class="box box-with-categories{{category_box_class}}">
+  {%- if settings.sb_collection_all_heading != '' -%}
+  <h3 class="box-heading">Collections</h3>
+  <div class="strip-line"></div>
+  {%- endif -%}
+  <div class="box-content box-category">
+    <ul class="accordion advanced-collection">
+      <li class="panel"><a class="field{% if collection.handle == 'all-products' %} active{% endif %}" href="/collections/all-products">All</a></li>
+      {%- for my_collection in collections | sort: 'published_at' | reverse -%}
+      {%- if my_collection.handle contains 'type-' -%}
+      <li class="panel"><a class="field{% if collection.handle == my_collection.handle %} active{% endif %}" href="{{my_collection.url}}">{{my_collection.title | remove: 'Type: ' }}</a></li>
+      {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+{%- endif -%}
+{%- comment -%}----- Filtering -----{%- endcomment -%}
+{%- if settings.collection_filtering -%}
+<div class="box mfilter-box box-no-advanced">
+  {%- if settings.collection_filtering_heading != '' -%}
+  <h3 class="box-heading">Filters</h3>
+  <div class="strip-line"></div>
+  {%- endif -%}
+  <div class="box-content mfilter-content">
+    {%- for i in (1..10) -%}
+    {%- assign tmp = 'filtering_' | append:i -%}
+    {%- if settings[tmp] -%}
+    <div class="column">
+      {%- assign tmp = 'filtering_heading_' | append:i -%}
+      {%- assign cat_item = settings[tmp] -%}
+      {%- assign cat_item_down = cat_item | downcase  | replace: ' ', '_' -%}
+      {%- assign tmp = 'filtering_filters_' | append:i -%}
+      {%- assign filters = settings[tmp] | strip_newlines | split: ',' -%}
+       <div class="filter_title active">
+        <span>{{ cat_item }}</span>
+        {%- for custom_tag in filters -%}
+        
+          {% unless custom_tag contains 'e.' %}
+
+          {%- if current_tags contains custom_tag -%}
+          <span class="clear"></span>
+          {%- break -%}
+          {%- endif -%}
+
+          {% endunless %}
+        
+        {%- endfor -%}
+      </div>
+      <div class="advanced-filter filter_container {{cat_item_down}}">
+        <ul class="fields">
+          {%- if cat_item_down contains 'color' or cat_item_down contains 'colour' -%}
+          {%- assign file_extension = '.png' -%}
+          {%- for custom_tag in filters -%}
+          <li class="filter-image{% unless collection.tags contains custom_tag %} hide{% endunless %}">
+            <div class="field{% if current_tags contains custom_tag %} active{% endif %}">
+              <input id="{{cat_item_down}}_{{custom_tag | handleize}}" type="checkbox" value="{{custom_tag | handleize}}" class="hide"{% if current_tags contains custom_tag %} checked="checked"{% endif %} />
+              <label for="{{cat_item_down}}_{{custom_tag | handleize}}" class="img btooltip" title="{{custom_tag | remove_first: cat_item | remove: '_'}}"><i style="background-color: {{custom_tag | remove_first: cat_item | remove: '_' | handle}}; background-image: url({{custom_tag | remove_first: cat_item | remove: '_' | handle | append: file_extension | asset_url}})"></i></label>
+            </div>
+          </li>
+          {%- endfor -%}
+          {%- else -%}
+          {%- for custom_tag in filters -%}
+          <li{% unless collection.tags contains custom_tag %} class="hide"{% endunless %}>
+            <div class="field label-checkbox{% if current_tags contains custom_tag %} active{% endif %}">
+              <input id="{{cat_item_down}}_{{custom_tag | handleize}}" type="checkbox" value="{{custom_tag | handleize}}" class="checkbox"{% if current_tags contains custom_tag %} checked="checked"{% endif %} />
+              <label for="{{cat_item_down}}_{{custom_tag | handleize}}" class="name">{{custom_tag | remove_first: cat_item | remove: '_'}}</label>
+            </div>
+          </li>
+          {%- endfor -%}
+          {%- endif -%}
+        </ul>
+      </div>
+    </div>
+    {%- endif -%}
+    {%- endfor -%}
+
+    {%- comment -%}----- Brands -----{%- endcomment -%}
+    {%- comment -%}<div class="column">
+      <div class="filter_title active">
+        <span>Brands</span>
+        {%- for brand in collections | sort: 'title' | reverse -%}
+        {% if brand.handle contains 'brand-' %}
+          {%- if current_tags contains brand.handle -%}
+            <span class="clear"></span>
+            {%- break -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="advanced-filter filter_container brand">
+        <ul class="fields">
+          {%- for brand in collections | sort: 'title' | reverse -%}
+          {% if brand.handle contains 'brand-' %}
+          <li{% unless collection.tags contains brand.handle %} class="hide"{% endunless %}>
+            <div class="field label-checkbox{% if current_tags contains brand.handle %} active{% endif %}">
+              <input id="{{ brand.handle }}" type="checkbox" value="{{ brand.handle }}" class="checkbox"{% if current_tags contains brand.handle %} checked="checked"{% endif %} />
+              <label for="{{ brand.handle }}" class="name">{{ brand.title | remove: 'Brand: ' }}</label>
+            </div>
+          </li>
+          {% endif %}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>{%- endcomment -%}
+
+    {%- comment -%}----- Tags -----{%- endcomment -%}
+    <div class="column">
+      <div class="filter_title active">
+        <span>Tags</span>
+        {%- for brand in collections | sort: 'title' | reverse -%}
+        {% if brand.handle contains 'brand-' %}
+          {%- if current_tags contains brand.handle -%}
+            <span class="clear"></span>
+            {%- break -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+      </div>
+     <div class="advanced-filter filter_container brand">
+        <ul class="fields">
+          {% for tag in collection.all_tags %}
+          
+          {% unless tag contains 'e.' or tag contains 'b.' or tag contains 'a.' or tag contains 'b.' or tag contains 'i.' or tag contains 'p.' %}
+          
+          {% assign tag_handle = tag | handle %}
+          {% unless tag_handle contains 'brand-' or tag_handle == 'not-swatch' or tag_handle == 'below-10' or tag_handle == 'above-320' or tag_handle == '1' or tag_handle == '2' or tag_handle == '10-20' or tag_handle == '20-40' or tag_handle == '40-80' or tag_handle == '80-160' or tag_handle == '160-320' %}
+          <li>
+            <div class="field label-checkbox{% if current_tags contains brand.handle %} active{% endif %}">
+              <input id="{{ tag | handle }}" type="checkbox" value="{{ tag | handle }}" class="checkbox"{% if current_tags contains tag %} checked="checked"{% endif %} />
+              <label for="{{ tag | handle }}" class="name">{{ tag }}</label>
+            </div>
+          </li>
+          {%- endunless -%}
+          
+          {%- endunless -%}
+          
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+{%- comment -%}----- Brands -----{%- endcomment -%}
+<!--
+<div class="box box-brands">
+  <h3 class="box-heading">Brands</h3>
+  <div class="strip-line"></div>
+  <div class="box-content box-brand">
+    <ul class="accordion advanced-collection u-list-reset">
+      {%- for brand in collections | sort: 'title' | reverse -%}
+      {%- if brand.handle contains 'brand-' -%}
+      {% comment %} <li class="panel"><a class="field{% if collection.handle == my_collection.handle %} active{% endif %}" href="{{my_collection.url}}">{{my_collection.title | remove: 'Brand: ' }}</a></li> {% endcomment %}
+      <li><a href="{{ brand.url }}">{{ brand.title | remove: 'Brand: ' }}</a></li>
+      {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+-->
+
+{%- comment -%}----- Featured Products -----{%- endcomment -%}
+{%- if settings.sb_collection_product and collections[settings.sb_collection_product_collection].products != empty -%}
+<div class="box featured hidden-xs hidden-sm">
+  {%- if settings.sb_collection_product_heading != '' -%}
+  <h3 class="box-heading">{{settings.sb_collection_product_heading}}</h3>
+  <div class="strip-line"></div>
+  {%- endif -%}
+  {%- assign my_collection = collections[settings.sb_collection_product_collection] -%}
+  <div class="box-content box-featured product-grid">
+    {%- for product in my_collection.products limit:settings.sb_collection_product_limit -%}
+    {%- include 'product-item' -%}
+    {%- endfor -%}
+  </div>
+</div>
+{%- endif -%}
+{%- comment -%}----- Link List -----{%- endcomment -%}
+{%- if settings.sb_collection_linklist -%}
+{%- assign list_temp = settings.sb_collection_linklist_list -%}
+{%- if linklists[list_temp] != empty -%}
+{%- assign list = linklists[list_temp] -%}
+<div class="box box-no-advanced hidden-xs hidden-sm">
+  <h3 class="box-heading">{{settings.sb_collection_linklist_heading | default:list.title}}</h3>
+  <div class="strip-line"></div>
+  <div class="box-content mfilter-content">
+    <ul>
+      {%- for my_link in list.links -%}
+      <li><a href="{{my_link.url}}" title="{{my_link.title | escape}}">{{my_link.title}}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+{%- endif -%}
+{%- endif -%}
+{%- comment -%}----- Custom HTML -----{%- endcomment -%}
+{%- if settings.sb_collection_html -%}
+<div class="box box-html banners hidden-xs hidden-sm">
+  {%- if settings.sb_collection_html_heading != '' -%}
+  <h3 class="box-heading">{{settings.sb_collection_html_heading}}</h3>
+  <div class="strip-line"></div>
+  {%- endif -%}
+  <div class="box-content">{{settings.sb_collection_html_content}}</div>
+</div>
+{%- endif -%}

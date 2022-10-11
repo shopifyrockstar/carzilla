@@ -1,0 +1,196 @@
+
+<section id="media-object-{{ section.id }}" class="u-full-bleed media-object tm-top-pattern media-object--{{ section.settings.media_object_side }} {%- if section.settings.visible_on_mobile == false -%}{{" hidden-xs"}}{%- endif-%}" data-section-id="{{ section.id }}" data-section-type="media-object">
+    <div class="media-object__half">
+      {% if section.settings.media_object_link_url %}
+        <a href="{{ section.settings.media_object_link_url }}">
+      {% endif %}
+          <img class="media-object__image lazyload" loading = "lazy" data-src="{{ section.settings.media_object_image.src | img_url: 'master' }}" alt="{{ section.settings.media_object_image.alt }}" />
+      {% if section.settings.media_object_link_url %}
+        </a>
+      {% endif %}
+    </div>
+    <div class="media-object__half">
+        <header class="media-object__header {% if section.settings.media_object_side == 'left' %} u-right-bleed{% else %} u-left-bleed{% endif %}">
+            <h3 class="media-object__title u-title">{{ section.settings.media_object_title }}</h3>
+        </header>
+        <div class="media-object__content">
+            {{ section.settings.media_object_content }}
+        </div> {% if section.settings.media_object_link_url %}
+        <footer class="media-object__footer">
+            <a class="media-object__link" href="{{ section.settings.media_object_link_url }}">{{ section.settings.media_object_link_text }}</a>
+        </footer>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "TM Media Object",
+    "class": "tm_media_object",
+    "settings": [
+        {
+          "type": "checkbox",
+          "id": "visible_on_mobile",
+          "label": "Display on Mobile"
+        },
+        {
+          "type": "radio",
+          "id": "media_object_side",
+          "label": "Side for the Image?",
+          "options": [
+              { "value": "left", "label": "Left" },
+              { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "media_object_image",
+          "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "media_object_alt",
+            "label": "ALT Text for Image"
+        },
+        {
+          "type": "text",
+          "id": "media_object_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_object_content",
+          "label": "Content"
+        },
+        {
+            "type": "text",
+            "id": "media_object_link_text",
+            "label": "Link Text",
+            "default": "Check out our Sales"
+        },
+        {
+            "type": "page",
+            "id": "media_object_link_url",
+            "label": "Link to Page"
+        }
+    ],
+    "presets": [
+        {
+            "name": "TM Media Object",
+            "category": "Content",
+            "settings": {
+                "visible_on_mobile": true,
+                "media_object_side": "left",
+                "media_object_title": "Media Object"
+            }
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet 'scss' %}
+.media-object {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: #FFF;
+
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .u-right-bleed {
+        margin-right: 0;
+        padding-right: 0;
+      }
+    }
+}
+
+.media-object--right {
+    flex-direction: row-reverse;
+}
+
+.media-object__half {
+    width: 50%;
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+      max-width: 600px;
+    }
+}
+
+.media-object__image {
+    max-width: 100%;
+    padding-right: 4rem;
+    mix-blend-mode: multiply;
+
+    @media screen and (max-width: 992px) {
+      padding-right: 0;
+    }
+}
+
+.media-object__header {
+    padding-top: 6rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #DC3D27;
+
+    @media screen and (max-width: 992px) {
+      padding-top: 1rem;
+    }
+}
+
+.media-object__title {
+  font-size: 40px;
+}
+
+.media-object__content {
+  line-height: 2;
+  font-size: 16px;
+  max-width: 300px;
+
+  @media screen and (max-width: 992px) {
+    max-width: 600px;
+  }
+}
+
+.media-object__footer {
+    margin-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+.media-object__link {
+    display: inline-block;
+    position: relative;
+    padding-right: 2rem;
+    font-size: 16px;
+    text-decoration: none;
+    color: #DC3D27;
+
+    &:hover {
+        color: #333;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-right: 2px solid #DC3D27;
+        border-bottom: 2px solid #DC3D27;
+        transform: translate(0, -50%) rotate(-45deg);
+        transition: border 0.3s ease;
+    }
+
+    &:hover::after {
+        border-right: 2px solid #333;
+        border-bottom: 2px solid #333;
+    }
+}
+{% endstylesheet %}
+

@@ -1,0 +1,148 @@
+<!-- Start YMM short code -->
+{% capture the_snippet_content %} 
+	{% include 'ymm-searchbox' %}{% endcapture %}
+	{% unless the_snippet_content contains "Liquid error" %}
+		{% assign searchbox_style = 'horizontal' %}<!-- eg. horizontal or vertical -->
+		{% assign searchbox_title = 'Search By Year, Make and Model' %}
+		{% include 'ymm-searchbox' %}
+{% endunless %}
+<!-- Ended YMM short code --> 
+
+<!-- YMM APP Product Result Page Template -->
+{{ 'ymm-custompage.css' | asset_url | stylesheet_tag }}
+
+<!-- Translation Error Handling -->
+{% assign pg_title_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.product_pagetitle' %}
+{% assign no_results_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.no_results' %}
+{% assign products_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.products' %}
+{% assign product_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.product' %}
+
+<!-- Get Page title -->
+{% assign product_pagetitle = 'ymm_app.product_pagetitle' | t | replace: pg_title_err, 'Products' %}
+
+{% assign is_sidebar = false %}
+<div class="page-width container {% if is_sidebar == true %}ymm-result-page {% endif %}">
+{% if is_sidebar == true %}
+  <div class="sidebar">SIDE BAR FILE INCLUDE</div>
+  <div class="ymm-grid">
+    <div class="">
+      <div class="section-header text-center">
+        <h1 id="title">{{product_pagetitle}}</h1>
+        <h4><span id="total_products"></span></h4>
+      </div>
+      <div class="rte">
+        {{ page.content }}
+        <!-- DO NOT EDIT BELOW LINES [ PRODUCTS ARE WRITTEN IN THIS PART ] -->
+        	<div id="product_container" class="clearfix">
+              <div id="products" class="grid search-result-ctm"></div>
+              <div class="clearfix paging-outr"><ul class="pagination" id="paginate"></ul></div>
+        	</div>
+        <!-- ENDS HERE -->
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div class="ymm-grid">
+    <div class="">
+      <div class="section-header text-center">
+        <h1 id="title">{{product_pagetitle}}</h1>
+        <h4><span id="total_products"></span></h4>
+      </div>
+      <div class="rte">
+        {{ page.content }}
+        <!-- DO NOT EDIT BELOW LINES [ PRODUCTS ARE WRITTEN IN THIS PART ] -->
+        	<div id="product_container" class="clearfix">
+              <div id="products" class="grid search-result-ctm"></div>
+              <div class="clearfix paging-outr"><ul class="pagination" id="paginate"></ul></div>
+        	</div>
+        <!-- ENDS HERE -->
+      </div>
+    </div>
+  </div>
+{% endif %}
+  </div>
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+{{ 'ymm-custompage.js' | asset_url | script_tag }}
+<script type="text/javascript">
+var ymmjQ = jQuery.noConflict(true);
+</script>
+<script type="text/javascript">
+(function($){
+  
+var url = decodeURIComponent(window.location.href);
+var query_params = url.split("rq=");
+var shop_domain = '{{ shop.permanent_domain }}';
+var data_url = 'https://ymmshopify.capacitywebservices.com/ajax/get_dropdowns.php';
+var no_results = "{{ 'ymm_app.no_results' | t | replace: no_results_err, 'There are No Products found.' }}";
+var products = "{{ 'ymm_app.products' | t | replace: products_err, 'Products' }}";
+var product = "{{ 'ymm_app.product' | t | replace: product_err, 'Product' }}";
+
+if(no_results == "") {
+  no_results = "There are No Products found.";
+}
+  
+if(products == "") {
+  products = "Products";
+}
+  
+if(product == "") {
+  product = "Product";
+}
+  
+if(typeof query_params[1] != "undefined") {
+  var tags = query_params[1].split("~");
+} else {
+  tags = "";
+}
+  
+if(tags != "") {
+ymmjQ('#paginate').pagination({
+    current: 1, 
+    size: 2,
+    length: 20,
+   	prev: '<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-arrow-left" viewBox="0 0 20 8"><path d="M4.814 7.555C3.95 6.61 3.2 5.893 2.568 5.4 1.937 4.91 1.341 4.544.781 4.303v-.44a9.933 9.933 0 0 0 1.875-1.196c.606-.485 1.328-1.196 2.168-2.134h.752c-.612 1.309-1.253 2.315-1.924 3.018H19.23v.986H3.652c.495.632.84 1.1 1.036 1.406.195.306.485.843.869 1.612h-.743z" fill="#000" fill-rule="evenodd"></path></svg>',
+    next: '<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-arrow-right" viewBox="0 0 20 8"><path d="M15.186.445c.865.944 1.614 1.662 2.246 2.154.631.491 1.227.857 1.787 1.098v.44a9.933 9.933 0 0 0-1.875 1.196c-.606.485-1.328 1.196-2.168 2.134h-.752c.612-1.309 1.253-2.315 1.924-3.018H.77v-.986h15.577c-.495-.632-.84-1.1-1.035-1.406-.196-.306-.486-.843-.87-1.612h.743z" fill="#000" fill-rule="evenodd"></path></svg>',
+    ajax: function(options,refresh,$target){
+    	ymmjQ.ajax({
+    	  url: data_url,
+          type: "GET",
+          data: "domain="+shop_domain+"&action=get_products&tags="+encodeURIComponent(tags)+"&current="+options.current+"&limit="+options.length,
+          dataType: 'jsonp'
+    	}).done(function(res){
+          
+			if(ymmjQ(".spr-badge").length > 0) {
+              //this line is added to fix big review star problem in IE11
+              ymmjQ('link[rel=stylesheet][href*="spr"]').remove();
+              //ended here
+              ymmjQ.getScript(window.location.protocol + "//productreviews.shopifycdn.com/assets/v4/spr.js");
+            }
+	
+    		ymmjQ("#product_container #products").html(res.prd_res);
+            
+          	if(res.total > 1) {
+              ymmjQ("#total_products").html(res.total+" "+products);
+            } else {
+              ymmjQ("#total_products").html(res.total+" "+product);
+            }
+         
+        	if(res.prd_res != null && res.total >= res.length) {
+    			refresh({
+    				total: res.total,
+    				length: res.length 
+    			});
+            }
+          
+           if(res.total == 0){
+              	ymmjQ("#total_products").html(no_results);
+           }
+          
+    	}).fail(function(error){ });
+    }
+});  
+} else {
+  ymmjQ("#total_products").html(no_results);
+}
+})(ymmjQ);   
+</script>

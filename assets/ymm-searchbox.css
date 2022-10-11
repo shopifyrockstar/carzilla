@@ -1,0 +1,72 @@
+/* searchbox css */
+#ymm_searchbox { width:50%; max-width:350px; margin:30px auto; background-color:#fff;  }
+#ymm_searchbox h2 { color:#000; font-size:24px; line-height:normal; text-transform:uppercase; padding:0 0 25px 0; margin:0;  letter-spacing:0; font-weight:600; text-align:center;}
+#ymm_searchbox ul { list-style:none; margin:0; padding:0; }
+#ymm_searchbox .formFields { padding:20px; }
+
+/* searchbox form css */
+#ymm_searchbox form { display:block; margin:0; width:100%; }
+#ymm_searchbox label { display:block; color:#000; font-size:15px; line-height:normal; margin:0; font-weight:600; text-transform:uppercase; }
+#ymm_searchbox .field { position:relative; margin-bottom:15px; }
+#ymm_searchbox select { color:#000; margin:0; width:100%; font-size:15px; padding:8px 8px; font-weight:500; min-height:42px; 
+	border:1px solid #e8e9eb; border-radius:2px; background-color:#ffffff; height: auto; line-height: normal; cursor:pointer; }
+#ymm_searchbox select[disabled] { color:#666; opacity:0.5; border:1px solid #ddd; background-color:#f4f4f4; }
+#ymm_actions .btn[disabled] { border:1px solid #ccc; opacity:0.4; cursor: not-allowed; background-color:#dddddd; color:#000000; }
+#ymm_actions .ymm_search { background-color: #000000; letter-spacing:0; font-size:15px; font-weight:600; color:#fff;  border-radius:2px;}
+#ymm_actions .ymm_search:hover { opacity:0.85;}
+#ymm_actions .btn { padding: 11px 30px;letter-spacing:0; font-size:15px; font-weight:600; margin-right:10px; color:#fff;
+	 border:solid 1px #000; border-radius:2px; height:auto; width:auto; line-height: normal; }
+#ymm_actions #ymm_reset { background-color:#ddd; color:#3d4246; border:solid 1px #ddd; margin-right:0; }
+#ymm_actions #ymm_reset:hover {color:#fff; background-color:#000; border-color:#000;}
+
+/* searchbox horizontal css */
+#ymm_searchbox.horizontal { max-width:100%; width:100%; padding: 0 30px; }
+#ymm_searchbox.horizontal .formFields { padding:0; display:inline-block; vertical-align:bottom; width:100%; text-align:center; }
+#ymm_searchbox.horizontal .formFields li { list-style:none; padding:0 10px 0 0; margin-bottom:10px; box-sizing:border-box;
+	display:inline-block; text-align:left; font-size:16px; }
+#ymm_searchbox.horizontal .formFields li.ymm_bttns { vertical-align:top; padding-right:0; width:auto; margin:0; } 
+#ymm_searchbox .button-action { padding:18px 0 0 0px; }
+
+ul.dropdowns li:not(.ymm_bttns) { width:20%; }
+ul.dropdowns li:nth-child(n+5) + li.ymm_bttns { clear:both; text-align: center; width:100%; }
+
+/* searchbox vertical css */
+#ymm_searchbox .ymm_loading { position:relative; width:20px; height:20px; margin:0 auto; }
+#ymm_searchbox.vertical { padding:25px;}
+#ymm_searchbox.vertical .formFields { padding:0;}
+#ymm_searchbox.vertical ul.dropdowns li { width:100%;}
+#ymm_searchbox.vertical ul.dropdowns li:not(.ymm_bttns) { width:100%;}
+
+
+
+@media only screen and (max-width:1199px){
+  
+}
+
+@media only screen and (max-width:999px){  
+  #ymm_searchbox.horizontal { padding:0 15px; }
+  #ymm_searchbox.horizontal .formFields  { width:100%; text-align:center;} 
+  #ymm_searchbox .button-action { display:block;}
+  #ymm_searchbox.horizontal ul.dropdowns li:not(.ymm_bttns) { width:25%; padding:0 5px;}
+}
+
+@media only screen and (max-width:767px){  
+  #ymm_searchbox h2 { font-size:22px; padding:0 0 15px 0; }
+  #ymm_searchbox { width:100%; }
+  #ymm_searchbox .formFields { padding:10px; }
+  #ymm_searchbox .field { position:relative; margin-bottom:10px; }  
+  #ymm_searchbox.horizontal .formFields li,
+  #ymm_searchbox.horizontal ul.dropdowns li:not(.ymm_bttns) { width:100%; padding:0; }
+  #ymm_searchbox.horizontal .formFields { padding:10px 0px; }   
+  #ymm_searchbox .button-action { padding-top:10px;}   
+}
+
+@media only screen and (max-width:600px){
+
+}
+
+@media only screen and (max-width:480px){
+  	#ymm_searchbox.horizontal { padding:0 10px; }
+  	#ymm_searchbox.vertical { padding:15px;}
+}
+

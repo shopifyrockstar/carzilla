@@ -1,0 +1,120 @@
+<h4>Brands</h4>
+  {%- assign _full_width_class = '' -%}
+  {%- if _submenu_w == '100%' or _submenu_w == '300%' or _submenu_w == '338%' or _submenu_w == '1230px' -%}
+  {%- assign _full_width_class = 'full-width-sub-menu' -%}
+  {%- endif -%}
+
+      	 <div   class="{{_full_width_class}} mobile-enabled">
+           <div class="menu">
+              {% for collection in collections %}
+                    {% if collection.title contains 'Brand' %}
+             <div class='col-sm-3 mobile-enabled'>
+                  <div class="row m-0">
+                   <a class= 'smenu' href="{{ collection.url }}">  {{ collection.title | remove: "Brand:"  }}</a>
+                  </div>
+              </div>
+                {% endif %}
+                  {% endfor %}
+             </div>
+
+
+           {%-comment-%}
+             <div class="col-sm-4 hover-menu">
+
+                <ul class='main-menu'>
+                  {% for collection in collections %}
+                    {% if collection.title contains 'Brand' %}
+                    <li>  <a href="{{ collection.url }}">  {{ collection.title | remove: "Brand:"  }}</a> </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+
+            </div>
+           {%-endcomment-%}
+
+
+          </div>
+
+
+
+
+
+
+{%- comment -%}
+<li class='{{_class}}' {{_title}}>
+  <p class='close-menu'></p><p class='open-menu'></p>
+  <a href='{{_url | default:'#'}}' class='{{_class_link}}' {{_target}}>
+    <span>
+      <strong>{%- if _desc != empty -%}<span class="description-left">{{_name}}<br /><span class="description">{{_desc}}</span></span>{%- else -%}{{_name}}{%- endif -%}{{_label_html}}</strong>
+    </span>
+  </a>
+
+  {%- if _item_has_sub == true -%}
+  {%- if section.settings.mmenu_orientation == '1' and _submenu_w == '100%' -%}
+  {%- assign _submenu_w = '350%'-%}
+  {%- endif -%}
+  {%- assign _full_width_class = '' -%}
+  {%- if _submenu_w == '100%' or _submenu_w == '300%' or _submenu_w == '338%' or _submenu_w == '1230px' -%}
+  {%- assign _full_width_class = 'full-width-sub-menu' -%}
+  {%- endif -%}
+  {%- endif -%}
+
+  <div class="sub-menu {{_full_width_class}}" style="width:{{_submenu_w}}">
+    <div class="content" ><p class="arrow"></p>
+      <div class="row">
+        {%- assign _row_fluid = 0 -%}
+        {%- for _llist_child_item in linklists[_handle].links -%}
+
+        {%- assign _sub_item_content_w = 12 -%}
+        {%- assign _t = _row_fluid | plus: _sub_item_content_w -%}
+
+        {%- if _t > 12 -%}
+        {%- assign _row_fluid = _sub_item_content_w -%}
+      	</div><div class="border"></div><div class="row">
+      	{%- else -%}
+      	{%- assign _row_fluid = _t -%}
+      	{%- endif -%}
+
+      	<div class="col-sm-{{_sub_item_content_w}} mobile-enabled">
+          <div class="row">
+            <div class="col-sm-12 hover-menu">
+              <div class="menu">
+                <ul>
+                  <li>
+                    <a href="{{_llist_child_item.url}}" class="main-menu {{_class_link}}">{{_html_name}}</a>
+                    {%- if _has_children == true -%}
+                    {%- assign _children = linklists[_handle].links -%}
+                    {%- include 'mega-menu-content-linklist-children' -%}
+                    {%- endif -%}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      	</div>
+
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</li>
+{%- endfor -%}
+{%- endcomment -%}
+
+{% style %}
+  .smenu {
+   display: block;
+    position: relative;
+    margin: 0;
+    padding: 5px 10px 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+@media only screen and (max-width: 600px) {
+  .smenu{
+    border-bottom: 1px solid lightgrey;
+	}
+}
+
+{% endstyle %}

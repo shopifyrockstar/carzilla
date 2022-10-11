@@ -1,0 +1,297 @@
+<!-- YMM APP Searchbox ------------------------------------------------------->
+{{ 'ymm-searchbox.css' | asset_url | stylesheet_tag }}
+
+<!-- Translation Error Handling -->
+{% assign ymmbox_title_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.searchbox_title' %}
+{% assign search_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.search_button' %}
+{% assign reset_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.reset_button' %}
+{% assign select_lbl_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.select_label' %}
+{% assign none_txt_err = 'translation missing:' | append:' ' | append: shop.locale | append: '.ymm_app.none_txt' %}
+
+<div class="page-width container">
+<div id="ymm_searchbox" class="{{searchbox_style}}">
+   <!-- YMM APP Searchbox --------------------------------------->
+  	{%if shop.locale == "en" and searchbox_title == "Search By Year, Make and Model" %}
+  		<h2 id="ymm_label">Search By Year, Make and Model</h2>
+	{% endif %}
+  
+  	{% if shop.locale == "en" and searchbox_title != "Search By Year, Make and Model" %}
+  		<h2 id="ymm_label">{{ searchbox_title }}</h2>
+	{% endif %}
+ 	
+  	{% if shop.locale != "en" and ymm_app.searchbox_title != "" %}
+  		<h2 id="ymm_label">{{ 'ymm_app.searchbox_title' | t | downcase | replace: ymmbox_title_err, 'Search By Year, Make and Model'  }}</h2>
+    {% endif %}
+
+  	<!-- DO NOT EDIT BELOW LINES [ DYNAMIC FORM FIELDS ARE WRITTEN IN THIS PART ] -->
+  	<div class="formFields clearfix">
+      <ul class="dropdowns">
+      </ul>
+  	</div>
+  	<!-- ENDS HERE -->
+</div>
+</div>
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var ymmjQ = jQuery.noConflict(true);
+</script>
+<!-- SEARCH FILTER YMM JS  -->
+<script type="text/javascript">
+(function($){
+    var shop_domain = '{{ shop.permanent_domain }}';
+    var img_src= '{{ "loader.gif" | asset_url }}';
+    var data_url = 'https://ymmshopify.capacitywebservices.com/ajax/get_dropdowns.php';
+    var url = decodeURIComponent(window.location.href);
+   	var searchURL = 'https://'+shop_domain+'/pages/product-result';
+  	var query_params = url.split("rq=");
+    var search_bttn = "{{ 'ymm_app.search_button' | t | downcase | replace: search_err, 'SEARCH' }}";
+ 	var reset_bttn = "{{ 'ymm_app.reset_button' | t | downcase | replace: reset_err, 'RESET' }}";
+    var select_lbl = "{{ 'ymm_app.select_label' | t | downcase | replace: select_lbl_err, 'Select' }}";
+    var none_lbl = "{{ 'ymm_app.none_txt' | t | downcase | replace: none_txt_err, 'None' }}";
+    
+    if(search_bttn == "") {
+      search_bttn = "SEARCH";
+    } 
+  
+ 	if(reset_bttn == "") {
+      reset_bttn = "RESET";
+  	}
+  
+  	if(select_lbl == "") {
+      select_lbl = "Select";
+  	}
+  
+  	if(none_lbl == "") {
+      none_lbl = "None";
+  	}
+  
+ 	if(typeof query_params[1] != "undefined") {
+    	var tags = query_params[1].split("~");
+ 	} else {
+    	tags = "";
+ 	}
+	
+  	/**** Get First Dropdown onload ***/
+   	ymmjQ.ajax({
+			type: "GET",
+    		dataType: 'jsonp',
+      		url: data_url,
+			data: "domain="+shop_domain+"&action=onload&load=all&version=updated",
+			success: function(res) {
+              
+	            if(res.access_status != "Unauthorized") {
+              	if(tags == ""){ //search is not performed yet.
+                  if(res.html != null) {
+                    ymmjQ(".formFields ul.dropdowns").append(res.html);
+                    
+                    var $dropdowns = ymmjQ(res.html).find('.ymm-filter');
+         
+                    $dropdowns.find('option:first').each(function () {
+                      var curr_drop_id = ymmjQ(this).parent().attr("id");
+                      var curr_text = ymmjQ(this).text();
+                      ymmjQ("#"+curr_drop_id+" option:first").text(curr_text.replace('Select',select_lbl));
+                    });
+                     
+                    ymmjQ(".ymm-filter").find("option[value*='none']").html(none_lbl);  
+                    
+                    var li_element = ymmjQ(".formFields ul.dropdowns").find('li.ymm_bttns');
+					
+                    if (!li_element.length) {
+      					ymmjQ(".formFields ul.dropdowns").append('<li class="ymm_bttns"><div id="ymm_actions" class="button-action" align="center"><input type="button" name="submit" id="ymm_search" value="'+search_bttn+'" class="btn ymm_search" disabled="disabled" /><input type="button" name="reset" id="ymm_reset" value="'+reset_bttn+'" class="btn btn--secondary" /></div> </li>');
+					} 
+                    
+                  } else {
+                
+                     ymmjQ(".formFields ul.dropdowns").append("<li>There are No YMM Records.</li>");
+                  }
+            		
+            	}
+	          } else {
+				ymmjQ("#ymm_searchbox").hide();
+              }
+			}	
+	 });	
+ 
+  	/*** Get Next Dropdowns on change in Sequencial order ***/
+ 	ymmjQ(document).on('change','[id^=dropdown]',function() {
+       	var arr = ymmjQ(this).attr("id").split("-");
+  		var current_field = arr[1];
+     	var dropdown_val = ymmjQ(this).val();
+     	var field_val_Arr = [];
+      	var next_all = ymmjQ("li."+current_field).nextAll().find("select");
+      	next_all.prop("disabled", true);
+     	next_all.val("-1");
+       	
+       	ymmjQ("#ymm_searchbox .formFields .dropdowns select[id^=dropdown]:visible").each(function(i, e) 
+      	{
+          
+           if(e.value != -1){
+       		var dropval = e.value;
+            field_val_Arr.push(dropval);
+           } 
+          
+            var first_field = ymmjQ('#ymm_searchbox .formFields .dropdowns > li:nth-child(1) select[id^=dropdown]').val();
+            var second_field = ymmjQ('#ymm_searchbox .formFields .dropdowns > li:nth-child(2) select[id^=dropdown]').val();
+       
+           	if(first_field==-1 || second_field==-1) {
+               disableSearch();
+            } else {
+               enableSearch();
+            }
+        });
+      
+      	if(dropdown_val != "-1") {
+          
+           showLoader(current_field);
+          
+           ymmjQ.ajax({
+				type: "GET",
+    			dataType: 'jsonp',
+      			url: data_url,
+				data: "domain="+shop_domain+"&load=all&data_filter=updated&action=onchange&version=updated&current_field="+current_field+"&prev_val="+encodeURIComponent(field_val_Arr)+"&current_val="+encodeURIComponent(dropdown_val),
+				success: function(res) {             
+                 
+                  if(res.html != "last_element~"){
+                
+                    	var returned_fieldname = res.html.split("~");
+                  	 	ymmjQ(".formFields ul.dropdowns ."+returned_fieldname[1]).remove();
+                   		ymmjQ(returned_fieldname[0]).insertAfter(".formFields ul.dropdowns ."+current_field);
+                   
+                    	var $dropdowns = ymmjQ(res.html).find('.ymm-filter');
+         
+                    	$dropdowns.find('option:first').each(function () {
+                      		var curr_drop_id = ymmjQ(this).parent().attr("id");
+                      		var curr_text = ymmjQ(this).text();
+                     		ymmjQ("#"+curr_drop_id+" option:first").text(curr_text.replace('Select',select_lbl));
+                    	});
+                     
+                    	ymmjQ(".ymm-filter").find("option[value*='none']").html(none_lbl);
+                    
+                 		var li_element = ymmjQ(".formFields ul.dropdowns").find('li.ymm_bttns');
+						
+                    	if (!li_element.length) {
+    					  ymmjQ(".formFields ul.dropdowns").append('<li class="ymm_bttns"><div id="ymm_actions" class="button-action" align="center"><input type="button" name="submit" id="ymm_search" value="'+search_bttn+'" class="btn ymm_search" disabled="disabled" /><input type="button" name="reset" id="ymm_reset" value="'+reset_bttn+'" class="btn btn--secondary" /></div></li>');
+						} 
+                  
+                  } 
+                  
+                  hideLoader();
+				}	
+	 		});	
+        } 
+    });
+  
+  	/*** After Search Filter performs show selected dropdowns values ***/
+  	if(tags != "") {
+      	ymmjQ.ajax({
+			type: "GET",
+    		dataType: 'jsonp',
+      		url: data_url,
+			data: "domain="+shop_domain+"&load=all&action=getdropdowns&version=updated&tags="+encodeURIComponent(tags),
+			success: function(res) {  
+              	ymmjQ(".formFields ul.dropdowns").html(res.html);
+              
+                 var $dropdowns = ymmjQ(res.html).find('.ymm-filter');
+         
+                 $dropdowns.find('option:first').each(function () {
+                      var curr_drop_id = ymmjQ(this).parent().attr("id");
+                      var curr_text = ymmjQ(this).text();
+                      ymmjQ("#"+curr_drop_id+" option:first").text(curr_text.replace('Select',select_lbl));
+                });
+                
+              	ymmjQ(".ymm-filter").find("option[value*='none']").html(none_lbl);
+              
+               	var li_element = ymmjQ(".formFields ul.dropdowns").find('li.ymm_bttns');
+				
+              	if (!li_element.length) {
+      				ymmjQ(".formFields ul.dropdowns").append('<li class="ymm_bttns"><div id="ymm_actions" class="button-action" align="center"><input type="button" name="submit" id="ymm_search" value="'+search_bttn+'" class="btn ymm_search" disabled="disabled" /><input type="button" name="reset" id="ymm_reset" value="'+reset_bttn+'" class="btn btn--secondary" /></div> </li>');
+				} 
+             
+             	enableSearch();
+			}
+        });  
+    }
+  
+  	/*** On click of Search button build search filter URL ***/
+  	ymmjQ(document).on('click','#ymm_search',function() 
+    {
+      var dropval = "";
+      var tagURL = "";
+      var loop_cnt = 0;
+      var append_tag = "";
+  
+      ymmjQ("#ymm_searchbox .formFields .dropdowns select[id^=dropdown]:visible").each(function(i, e) 
+      {
+       		dropval = e.value;
+        	loop_cnt++;
+          
+        	if(dropval != "-1") {
+            	if(loop_cnt >= 1) {
+                     if(dropval != "") {
+                       if(dropval.indexOf("_none")== -1) {
+                           append_tag += dropval+"~";
+             		 	   tagURL = searchURL+"?rq="+append_tag;
+                       }
+                     }
+            	}
+          	}
+   		});
+          
+      	tagURL = removeLastSign(tagURL);
+     	window.location.href = tagURL;
+    });
+  
+  	/*** Reset function ***/
+  	ymmjQ(document).on('click','#ymm_reset',function()  
+    {
+      disableSearch();
+     
+      	var c = 0;
+      	ymmjQ("#ymm_searchbox .formFields .dropdowns select[id^=dropdown]:visible").each(function(i, e) 
+      	{
+          	c++;
+          	var dropdown_id = ymmjQ(this).attr("id");
+          	if(c == 1) {
+             	ymmjQ("#"+dropdown_id).val("-1");
+          	} else {
+             	ymmjQ("#"+dropdown_id).val("-1");
+             	ymmjQ("#"+dropdown_id).prop('disabled',true);
+          	}
+        });
+    });
+  
+  	function removeLastSign(myUrl)
+	{
+    	if(myUrl.substring(myUrl.length-1) == "~") {
+        	myUrl = myUrl.substring(0,myUrl.length-1);
+    	}
+    	return myUrl;
+	}
+  
+  	function disableSearch()
+ 	{
+    	ymmjQ("#ymm_search").prop('disabled',true);
+  	}
+  
+  	function enableSearch()
+ 	{
+    	ymmjQ("#ymm_search").prop('disabled',false);
+  	}
+  
+  	function showLoader(current_field)
+  	{
+       if(ymmjQ("li."+current_field).is(':not(:nth-last-child(2))')) {
+          var next_lbl = ymmjQ("li."+current_field).next().find(".ymm_label").html();
+          ymmjQ( "#ymm_searchbox .formFields ul.dropdowns li."+current_field).next("#ymm_searchbox .formFields ul.dropdowns li:not(.ymm_bttns)").remove();
+    	  ymmjQ( "<li id='ymm_loader'><label class='ymm_label'>"+next_lbl+"</label><div class='ymm_loading'><img src='"+img_src+"' height='20px' width='20px'/></div></li>" ).insertAfter( "#ymm_searchbox .formFields ul.dropdowns li."+current_field);
+       }
+    }
+  
+  	function hideLoader()
+  	{
+    	ymmjQ('#ymm_loader').remove();
+  	}
+})(ymmjQ);  
+</script>

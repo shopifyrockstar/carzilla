@@ -1,0 +1,82 @@
+
+<section id="media-object-{{ section.id }}" class="media-object {%- if section.settings.visible_on_mobile == false -%}{{" hidden-xs"}}{%- endif-%} media-object--{{ section.settings.media_object_side.value }}" data-section-id="{{ section.id }}" data-section-type="media-object">
+    <img class="media-object__image lazyload" data-src="{{ section.settings.media_object_image }}" alt="{{ section.settings.media_object_alt }}" />
+    <div class="media-object-half">
+        <header class="media-object__header">
+            <h3 class="media-object__title">{{ section.settings.media_object_title }}</h3>
+        </header>
+        <div class="media-object__content">
+            {{ section.settings.media_object_content }}
+        </div>
+        {% if section.settings.media_object_link_url %}
+        <footer class="media-object__footer">
+            <a href="{{ section.settings.media_object_link_url }}">{{ section.settings.media_object_link_text }}</a>
+        </footer>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Media Object",
+    "class": "media_object",
+    "settings": [
+        {
+          "type": "checkbox",
+          "id": "visible_on_mobile",
+          "label": "Display on Mobile"
+        },
+        {
+          "type": "radio",
+          "id": "media_object_side",
+          "label": "Side for the Image?",
+          "options": [
+              { "value": "left", "label": "Left" },
+              { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "media_object_image",
+          "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "media_object_alt",
+            "label": "ALT Text for Image"
+        },
+        {
+          "type": "text",
+          "id": "media_object_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "media_object_content",
+          "label": "Content"
+        },
+        {
+            "type": "text",
+            "id": "media_object_link_text",
+            "label": "Link Text",
+            "default": "Check out our Sales"
+        },
+        {
+            "type": "page",
+            "id": "media_object_link_url",
+            "label": "Link to Page"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Media Block",
+            "category": "Content",
+            "settings": {
+                "visible_on_mobile": true,
+                "media_object_side": "left",
+                "media_object_title": "Media Object"
+            }
+        }
+    ]
+  }
+{% endschema %}

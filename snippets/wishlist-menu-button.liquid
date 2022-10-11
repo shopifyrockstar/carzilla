@@ -1,0 +1,40 @@
+<style>
+.swym-wishlist {
+  position: relative;
+  top: -10px;
+}
+
+@media (max-width:768px) {
+  .swym-wishlist {
+    position: relative;
+    top: 13px;
+  }
+}
+
+i.icon-swym-wishlist {
+  font-family: 'swym-font';
+  font-style: normal;
+  vertical-align: middle;
+}
+
+i.icon-swym-wishlist+span {
+  vertical-align: middle;
+}
+
+i.icon-swym-wishlist:after {
+  content: '';
+  font-size: 220%;
+  line-height: 30px;
+  text-align: center;
+  display: inline;
+}
+
+/*content rendered after swym is ready to avoid showing block/invalid chars*/
+.swym-ready i.icon-swym-wishlist:after {
+  content: '\f004';
+}
+</style>
+
+<a href="#swym-wishlist" class="swym-wishlist" style=" margin-top: 20px; color: #DC3D27; margin-right: 10px;margin-left: 15px; display:inline-block;">
+  <i aria-hidden="true" focusable="false" role="presentation" class="icon icon-swym-wishlist"></i>
+</a>

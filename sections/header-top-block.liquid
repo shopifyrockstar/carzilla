@@ -1,0 +1,110 @@
+<div class="{%- if section.settings.visible_on_mobile == false -%}{{" hidden-xs"}}{%- endif-%}" data-section-id="{{ section.id }}" data-section-type="topblock-section">
+  <div class="top-block-wrapper" id="top-block-wrapper-{{section.id}}">
+  <div class="top-block_container" id="top-block-{{section.id}}">
+    <div class="social__top">
+      <p><span class="social__text">Reviews</span>
+      <a href="https://www.facebook.com/CarzillaCalgary/">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 22" class="tm-icon tm-icon--facebook" aria-labelledby="tm-icon--facebook" role="img">
+          <title id="tm-icon--facebook">Facebook Social Icon</title>
+          <path class="tm-facebook__path" d="M4.52,7.5H6.65V5.43a5.57,5.57,0,0,1,.69-3.2A3.79,3.79,0,0,1,10.65.67a13.21,13.21,0,0,1,3.83.39L14,4.22A7.14,7.14,0,0,0,12.23,4c-.83,0-1.58.3-1.58,1.13V7.5h3.41l-.24,3.09H10.65V21.33h-4V10.59H4.52Z"/>
+        </svg>
+      </a>
+      <a href="https://www.google.ca/maps/place/CARZILLA/@51.0656127,-114.0188537,17z/data=!3m1!4b1!4m5!3m4!1s0x537165255507822d:0x248065a8b007779!8m2!3d51.0656127!4d-114.016665">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 28.47 28.84" class="tm-icon tm-icon--google" aria-labelledby="tm-icon--google" role="img">
+            <title id="tm-icon--google">Google Social Icon</title>
+						<defs>
+							<style>.cls-1{clip-rule:evenodd;}.cls-2{fill: #d2d3d4}.cls-3{fill-rule:evenodd;}.cls-4{clip-path:url(#clip-path);}.cls-5{clip-path:url(#clip-path-2);}.cls-6{clip-path:url(#clip-path-3);}.cls-7{clip-path:url(#clip-path-4);}
+							</style>
+							<clipPath id="clip-path">
+							<path class="cls-1" d="M23.32,14.63a10.66,10.66,0,0,0-.17-1.9H14.42v3.59h5a4.3,4.3,0,0,1-1.85,2.8v2.32h3a9,9,0,0,0,2.77-6.81Z"/>
+							</clipPath>
+							<clipPath id="clip-path-2">
+							<path class="cls-1" d="M14.42,23.69a8.82,8.82,0,0,0,6.13-2.25l-3-2.32a5.62,5.62,0,0,1-3.14.88,5.53,5.53,0,0,1-5.19-3.82H6.14v2.4a9.26,9.26,0,0,0,8.28,5.11Z"/>
+							</clipPath>
+							<clipPath id="clip-path-3">
+							<path class="cls-1" d="M9.23,16.18a5.49,5.49,0,0,1,0-3.52v-2.4H6.14a9.24,9.24,0,0,0,0,8.32l3.09-2.4Z"/>
+							</clipPath>
+							<clipPath id="clip-path-4">
+							<path class="cls-1" d="M14.42,8.84A5,5,0,0,1,18,10.22l2.66-2.66a8.91,8.91,0,0,0-6.2-2.41,9.26,9.26,0,0,0-8.28,5.11l3.09,2.4a5.53,5.53,0,0,1,5.19-3.82Z"/>
+							</clipPath>
+						</defs>
+						<g class="cls-2">
+							<path class="cls-3" d="M23.32,14.63a10.66,10.66,0,0,0-.17-1.9H14.42v3.59h5a4.3,4.3,0,0,1-1.85,2.8v2.32h3a9,9,0,0,0,2.77-6.81Z"/>
+							<g class="cls-4">
+								<rect id="_Path_" data-name="&lt;Path&gt;" x="9.27" y="7.58" width="19.2" height="19.01"/>
+							</g>
+							<path class="cls-3" d="M14.42,23.69a8.82,8.82,0,0,0,6.13-2.25l-3-2.32a5.62,5.62,0,0,1-3.14.88,5.53,5.53,0,0,1-5.19-3.82H6.14v2.4a9.26,9.26,0,0,0,8.28,5.11Z"/>
+							<g class="cls-5">
+								<rect id="_Path_2" data-name="&lt;Path&gt;" x="0.99" y="11.03" width="24.72" height="17.81"/>
+							</g>
+							<path class="cls-3" d="M9.23,16.18a5.49,5.49,0,0,1,0-3.52v-2.4H6.14a9.24,9.24,0,0,0,0,8.32l3.09-2.4Z"/>
+							<g class="cls-6">
+								<rect id="_Path_3" data-name="&lt;Path&gt;" y="5.11" width="14.38" height="18.63"/>
+							</g>
+							<path class="cls-3" d="M14.42,8.84A5,5,0,0,1,18,10.22l2.66-2.66a8.91,8.91,0,0,0-6.2-2.41,9.26,9.26,0,0,0-8.28,5.11l3.09,2.4a5.53,5.53,0,0,1,5.19-3.82Z"/>
+							<g class="cls-7">
+								<rect id="_Path_4" data-name="&lt;Path&gt;" x="0.99" width="24.79" height="17.81"/>
+							</g>
+						</g>
+				</svg>
+      </a>
+      </p>
+    </div>
+  {% comment %}
+  {%- if section.blocks.size > 0 -%}
+  	{%- for block in section.blocks -%}
+  		{%- if block.type == 'custom_html' -%}
+          <div class="html_wrapper" {{ block.shopify_attributes }}>
+            {{block.settings.html_content}}
+          </div>
+  		{%- else -%}
+  			<div class="box" {{ block.shopify_attributes }}>
+              <div class="box-content">
+                {{pages[block.settings.page_content].content}}
+              </div>
+            </div>
+  		{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {% endcomment %}
+  </div>  
+  </div> 
+</div>
+{% schema %}
+  {
+    "name": "Top Block",
+	"class": "index-section section-wrapper",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "visible_on_mobile",
+        "label": "Show on Mobile"
+      }
+	],
+	"blocks": [
+      {
+		"type": "custom_html",
+        "name": "Custom HTML",
+        "settings": [
+          {
+			"type": "textarea",
+            "id": "html_content",
+            "label": "HTML Content",
+            "info": "[How to use?](https:\/\/youtu.be\/s7s8hWXVxGE)"
+		  }
+		]	
+      },
+	  {
+		"type": "content_page",
+        "name": "Page Content",
+        "settings": [
+          {
+            "type": "page",
+            "id": "page_content",
+            "label": "Choose a Page"
+          }
+		]	
+      }
+	]
+  }
+{% endschema %}

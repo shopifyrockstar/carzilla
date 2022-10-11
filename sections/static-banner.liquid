@@ -1,0 +1,113 @@
+
+{%- if section.blocks.size > 0 -%}
+<div 
+     data-placement_fullwidth="{%- if section.settings.placement_fullwidth -%}1{%- else -%}0{%- endif -%}"
+     id="testimonial-{{section.id}}" class="box box-with-products box-carousel{%- if section.settings.visible_on_mobile == false -%}{{" hidden-xs"}}{%- endif-%}" data-section-id="{{ section.id }}" data-section-type="testimonial">
+  <!-- Carousel nav -->
+<!--   <a class="next" href="#myCarousel_testi_{{section.id}}" id="myCarousel_testi_next_{{section.id}}"><span></span></a>
+  <a class="prev" href="#myCarousel_testi_{{section.id}}" id="myCarousel_testi_prev_{{section.id}}"><span></span></a> -->
+  
+  <div class="box-heading">{{section.settings.testi_head}}</div>
+  <div class="strip-line"></div>
+  <div class="clear"></div>
+  <div class="box-content products">
+    <div id="myCarousel_testi_{{section.id}}" class="carousel slide">
+      <div class="carousel-inner">
+        {%- for block in section.blocks limit: section.blocks.size -%}
+          {%- if block.type == 'testimonial_page' -%}
+              {{pages[block.settings.testi_page].content}}
+          {%- else -%}
+              <div class="testimonial clearfix">     
+                {%- if  block.settings.testi_img != blank -%}
+                	{%- assign img_url = block.settings.testi_img | img_url:"100x100", crop:"center" -%}
+                {%- else -%}
+                	{%- assign img_url = "noimage_100_100.png" | asset_img_url:"master" -%}
+                {%- endif -%}
+                {%- if  block.settings.show_img == true -%}
+                <img src="{{ img_url }}" align="left" alt="Avatar" />    
+                {%-endif-%}
+<!--                 <div class="author">          
+                  <span>{{block.settings.testi_author}}</span>          
+                  <p>{{block.settings.testi_tit}}</p>
+                </div> -->
+                <div class="description" style="    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: "Poppins", sans-serif;">
+                  {{block.settings.testi_desc}}
+                </div>
+              </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Static",
+	"class": "index-section section-wrapper",
+	"max_blocks": 1,
+    "settings": [
+		{
+          "type": "text",
+          "id": "testi_head",
+          "label": "Heading"
+        },
+		{
+          "type": "checkbox",
+          "id": "placement_fullwidth",
+          "label": "Force Full Width"
+        },
+    	{
+          "type": "checkbox",
+          "id": "visible_on_mobile",
+          "label": "Show on Mobile",
+          "default": true
+        }
+	],
+	"blocks": [
+		{
+			"type": "testimonial_content",
+			"name": "Content",
+			"settings": [
+                {
+                  "type": "image_picker",
+                  "id": "testi_img",
+                  "label": "Pick an Image"
+                },
+                {
+                  "type": "textarea",
+                  "id": "testi_desc",
+                  "label": "Description"
+                },{
+              "type": "checkbox",
+              "id": "show_img",
+              "label": "Show Image",
+              "default": true
+            }
+			]
+		}
+	],
+	"presets": [
+		{
+          "name": "Static",
+          "category": "Banners",
+          "settings": {
+              "visible_on_mobile": true,
+              "testi_head": ""
+          },
+          "blocks": [
+            {
+              "type": "testimonial_content",
+			  "settings": {
+                "testi_desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+			  }
+            }
+          ]
+		}
+	]
+  }
+{% endschema %}

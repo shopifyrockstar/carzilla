@@ -1,0 +1,50 @@
+<main id="col-main" class="center-column content-with-background blog-article{% if settings.sb_blog_placement != '' %} col-md-12{% else %} col-md-12{% endif %} col-sm-12">
+  <article class="single">
+    <header class="single__header">
+      {%- if article.image -%}
+      <div class="single__media">
+        <img alt="{{article.title | escape}}" src="{{article.image.src | img_url: 'master'}}" />
+      </div>
+      {%- endif -%}
+      <div class="single__header-group">
+        <date class="single__date t-grey t-langdon t-md">{{ article.published_at | date: "%d.%m.%Y" }}</date>
+        <h1 class="single__title c-title t-xxxl">{{ article.title }}</h1>
+        <ul class="single__tags tags__list t-langdon t-md u-list-reset">
+          {% for tag in article.tags %}
+            <li class="tags__item">{{ tag | link_to_add_tag: tag }}{%- if forloop.last == false -%}&nbsp;/&nbsp;{% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </header>
+    <div class="single__content content">
+      <div class="single__excerpt content__excerpt">
+        {{ article.excerpt }}
+      </div>
+      <div class="single__main content__main">
+        {{article.content}}
+      </div>
+    </div>
+    <footer class="single__footer share">
+      <p class="share__title t-xs">Share</p>
+      <div class="share__previous">
+        {%- if blog.previous_article -%}<a href="{{ blog.previous_article }}">{%- endif -%}Previous{%- if blog.previous_article -%}</a>{%- endif -%}
+      </div>
+
+      {%- capture share_url -%}
+      {{ shop.url }}{{ article.url }}
+      {%- endcapture -%}
+
+      <ul class="share__list u-list-reset">
+        <li><a class="inverse" href="https://www.facebook.com/sharer.php?u={{ share_url | strip_newlines | strip | url_encode }}"><i class="fab fa-facebook-f"></i></a></li>
+
+        <li><a class="inverse" href="https://www.linkedin.com/shareArticle?mini=true&url={{ share_url | strip_newlines | strip | url_encode }}&title={{ article.title | url_encode }}"><i class="fab fa-linkedin-in"></i></li>
+
+        <li><a class="inverse" href="https://twitter.com/intent/tweet?url={{ share_url | strip_newlines | strip | url_encode }}&title={{ article.title | url_encode }}"><i class="fab fa-twitter"></i></a></li>
+      </ul>
+
+      <div class="share__next">
+        {%- if blog.next_article -%}<a href="{{ blog.next_article }}">{%- endif -%}Next{%- if blog.next_article -%}</a>{%- endif -%}
+      </div>
+    </footer>
+  </div>
+</main>
