@@ -8,10 +8,10 @@
             {% for collection in collections %}
                 {% if collection.title contains 'Brand' %}
                     {% assign collection_title = collection.title | downcase %}
-                    {% if collection_title contains 'brand: 3' %}
+                    {% comment %} {% if collection_title contains 'brand: 3' %}
                         <div class="digits-category-wrapper">
-                    {% endif %}
-                    {% if collection_title contains 'brand: a' or collection_title contains 'brand: b' or collection_title contains 'brand: c' or collection_title contains 'brand: d' %}
+                    {% endif %} {% endcomment %}
+                    {% if collection_title contains 'brand: a' or collection_title contains 'brand: b' or collection_title contains 'brand: c' or collection_title contains 'brand: d' or collection_title contains 'brand: 3' %}
                         <div class="ad-category-wrapper">
                     {% endif %}
 
@@ -31,11 +31,11 @@
                             <a class= 'smenu' href="{{ collection.url }}" data-title="{{ collection.title }}">  {{ collection.title | remove: "Brand:"  }}</a>
                         </div>
                     </div>
-                    {% if collection_title contains 'brand: 3' %}
+                    {% comment %} {% if collection_title contains 'brand: 3' %}
                         </div>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
 
-                    {% if collection_title contains 'brand: a' or collection_title contains 'brand: b' or collection_title contains 'brand: c' or collection_title contains 'brand: d' %}
+                    {% if collection_title contains 'brand: a' or collection_title contains 'brand: b' or collection_title contains 'brand: c' or collection_title contains 'brand: d' or collection_title contains 'brand: 3' %}
                         </div>
                     {% endif %}
 
@@ -77,13 +77,13 @@
 
 <script>
     $(document).ready(function(){
-        $(".digits-category-wrapper").wrapAll('<div class="digits-wrapper category-wrapper" />');
+        //$(".digits-category-wrapper").wrapAll('<div class="digits-wrapper category-wrapper" />');
         $(".ad-category-wrapper").wrapAll('<div class="ad-wrapper category-wrapper" />');
         $(".ek-category-wrapper").wrapAll('<div class="ek-wrapper category-wrapper" />');
         $(".lr-category-wrapper").wrapAll('<div class="lr-wrapper category-wrapper" />');
         $(".sz-category-wrapper").wrapAll('<div class="sz-wrapper category-wrapper" />');
         
-        $(".digits-wrapper.category-wrapper").prepend('<h4 class="smenu">Digits</h4>');
+        //$(".digits-wrapper.category-wrapper").prepend('<h4 class="smenu">Digits</h4>');
         $(".ad-wrapper.category-wrapper").prepend('<h4 class="smenu">A - D</h4>');
         $(".ek-wrapper.category-wrapper").prepend('<h4 class="smenu">E - L</h4>');
         $(".lr-wrapper.category-wrapper").prepend('<h4 class="smenu">M - R</h4>');
