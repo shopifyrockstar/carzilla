@@ -1,0 +1,329 @@
+{%- assign _full_width_class = '' -%}
+{%- if _submenu_w == '100%' or _submenu_w == '300%' or _submenu_w == '338%' or _submenu_w == '1230px' -%}
+{%- assign _full_width_class = 'full-width-sub-menu' -%}
+{%- endif -%}
+
+{% assign ext_cat = next_block.settings.shop_ex_cat | split: '---' %}
+{% assign int_cat = next_block.settings.shop_int_cat | split: '---'  %}
+{% assign pt_cat = next_block.settings.shop_pt_cat | split: '---'  %}
+{% assign acc_cat = next_block.settings.shop_acc_cat | split: '---'  %}
+{% assign bt_cat = next_block.settings.shop_bt_cat | split: '---'  %}
+
+{% comment%}
+{% assign ext_cat_in = next_block.settings.shop_ex_cat | newline_to_br | split: '<br />' %}
+{% assign int_cat = next_block.settings.shop_int_cat | newline_to_br | split: '<br />'  %}
+{% assign pt_cat = next_block.settings.shop_pt_cat | newline_to_br | split: '<br />'  %}
+{% assign acc_cat = next_block.settings.shop_acc_cat | newline_to_br | split: '<br />'  %}
+{% assign bt_cat = next_block.settings.shop_bt_cat | newline_to_br | split: '<br />'  %}
+
+{% endcomment%}
+
+
+{% assign coll = collections.all %}
+
+<div class="{{_full_width_class}} mobile-enabled col-sm-12">
+
+
+<!--   main body -->
+
+    <div class="row" style="border-top: 1px solid #E4E5E7;margin-top:2px;margin-bottom:2%;">
+    
+        {% if class_list contains 'megamenu-exterior' %}
+            <div class="col-sm-12 hdv 2x" style="display:block">
+                <div class="tabvet">
+                    {% for e in ext_cat %}
+                    <button class="tablinks" onclick="openCity(event, 'c{{forloop.index}}')">
+
+                    {% assign ext_cat_in = e | split: ';' %}
+                    {{ext_cat_in[0]}}
+                </button>
+                    {% endfor %}
+                </div>
+
+                <div class="tabvet-content-wrapper">
+                    {% for e in ext_cat %}
+                    <div id="c{{forloop.index}}" class="tabvetcontent c{{forloop.index}}">
+                    {% assign ex = e | split: ';' %}
+                    {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
+                        {% for v in ext_cat_in %}
+                            {% assign splitv = v | split :'|'%}
+                            {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+
+                            <div class="cmenu row">
+                                <div class='col-sm-3'>
+                                    {{ splitv[0] | link_to: url }}
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        
+        {% if class_list contains 'megamenu-interior' %}
+            <div class="col-sm-12 hdv 3x" style="display:block">
+                <div class="tabvet">
+                    {% for e in int_cat %}
+                        <button class="tablinks" onclick="openCity(event, 'i{{forloop.index}}')">
+                            {% assign ext_cat_in = e | split: ';' %}
+                            {{ext_cat_in[0]}}
+                        </button>
+                    {% endfor %}
+                </div>
+
+                <div class="tabvet-content-wrapper">
+                    {% for e in int_cat %}
+                        <div id="i{{forloop.index}}" class="tabvetcontent i{{forloop.index}}">
+                            {% assign ex = e | split: ';' %}
+                            {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
+                            {% for v in ext_cat_in %}
+                                {% assign splitv = v | split :'|'%}
+
+                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                <div class="cmenu row">
+                                {{ splitv[0] | link_to: url }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if class_list contains 'megamenu-paint-correction' %}
+            <div class="col-sm-12 hdv 4x" style="display:block">
+                <div class="tabvet">
+                    {% for e in pt_cat %}
+                        <button class="tablinks" onclick="openCity(event, 'p{{forloop.index}}')">
+                            {% assign ext_cat_in = e | split: ';' %}
+                            {{ext_cat_in[0]}}
+                        </button>
+                    {% endfor %}
+                </div>
+                <div class="tabvet-content-wrapper">
+                    {% for e in pt_cat %}
+                        <div id="p{{forloop.index}}" class="tabvetcontent p{{forloop.index}}">
+                            {% assign ex = e | split: ';' %}
+                            {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
+                            {% for v in ext_cat_in %}
+                                {% assign splitv = v | split :'|'%}
+                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                <div class="cmenu row">
+                                    {{ splitv[0] | link_to: url }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if class_list contains 'megamenu-accessories' %}
+            <div class="col-sm-12 hdv 5x" style="display:block">
+                <div class="tabvet">
+                    {% for e in acc_cat %}
+                        <button class="tablinks" onclick="openCity(event, 'a{{forloop.index}}')">
+                            {% assign ext_cat_in = e | split: ';' %}
+                            {{ext_cat_in[0]}}
+                        </button>
+                    {% endfor %}
+                </div>
+                <div class="tabvet-content-wrapper">
+                    {% for e in acc_cat %}
+                        <div id="a{{forloop.index}}" class="tabvetcontent a{{forloop.index}}">
+                            {% assign ex = e | split: ';' %}
+                            {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
+                            {% for v in ext_cat_in %}
+                                {% assign splitv = v | split :'|'%}
+                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                <div class="cmenu row">
+                                    {{ splitv[0] | link_to: url }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if class_list contains 'megamenu-boat' %}
+            <div class="col-sm-12 hdv 6x" style="display:block">
+                <div class="tabvet">
+                    {% for e in bt_cat %}
+                        <button class="tablinks" onclick="openCity(event, 'b{{forloop.index}}')">
+                            {% assign ext_cat_in = e | split: ';' %}
+                            {{ext_cat_in[0]}}
+                        </button>
+                    {% endfor %}
+                </div>
+                <div class="tabvet-content-wrapper">
+                    {% for e in bt_cat %}
+                        <div id="b{{forloop.index}}" class="tabvetcontent b{{forloop.index}}">
+                            {% assign ex = e | split: ';' %}
+                            {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
+                            {% for v in ext_cat_in %}
+                                {% assign splitv = v | split :'|'%}
+                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                <div class="cmenu row">
+                                    {{ splitv[0] | link_to: url }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+  	</div>
+
+
+</div>
+
+
+
+{% style %}
+
+.hdlink{
+	cursor:pointer
+}
+
+.hdv{
+	display:none;
+}
+
+
+.cmenu{
+padding-top:10px;
+padding-left:20px;
+font-size:13px;
+font-weight:500;
+font-family: "Langdon Regula" ,sans-serif !important;
+
+}
+
+
+
+
+
+
+
+
+ul.shopify-tabs {
+margin-right: 15px;
+padding: 0px;
+list-style: none;
+}
+ul.shopify-tabs > li{
+background: none;
+color: #333;
+display: inline-block;
+padding: 10px 15px;
+cursor: pointer;
+font-family: "Langdon Regula" ,sans-serif !important;
+line-height: 1.5;
+font-size:18px;
+font-weight:bold;
+letter-spacing: 1px;
+}
+ul.shopify-tabs > li.current{
+background: #ffffff;
+color: #E05946;
+}
+.shopify-tab-content{
+display: none;
+background: #ffffff;
+padding: 15px;
+}
+.shopify-tab-content.current{
+display: block;
+}
+
+.smenu {
+display: block;
+position: relative;
+margin: 0;
+padding: 5px 10px 8px;
+font-size: 14px;
+font-weight: 600;
+}
+@media only screen and (max-width: 600px) {
+  .smenu{
+    border-bottom: 1px solid lightgrey;
+	}
+}
+.bg{
+background:#E4E5E7
+}
+
+
+/* Style the tab */
+.tabvet {
+  width: 30%;
+  padding:10px;
+  border-right: 1px solid #F1F1F1;
+}
+
+@media only screen and (max-width: 600px) {
+  .tabvet {
+    width: 100%;
+    padding:0;
+    border:0;
+  }
+}
+
+.tablinks{
+font-weight:600;
+font-size:14px;
+font-family: "Langdon Regula" ,sans-serif !important;
+
+}
+/* Style the buttons that are used to open the tab content */
+.tabvet button {
+display: block;
+background-color: inherit;
+color: black;
+padding: 5px 0px;
+width: 100%;
+border: none;
+outline: none;
+text-align: left;
+cursor: pointer;
+transition: 0.3s;
+border-bottom: 1px solid lightgrey;
+}
+
+/* Change background color of buttons on hover */
+.tabvet button:hover {
+background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tabvet button.active {
+color: #E05946;
+}
+
+/* Style the tab content */
+.tabvetcontent {
+float: left;
+padding: 0px 12px;
+width: 70%;
+border-left: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .tabvetcontent {
+    width: 100%;
+    padding: 5px 5px;
+    margin:0 !important;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: "Langdon Regula" ,sans-serif !important;
+  }
+
+  .tabvetcontent .row {
+    margin:0 !important;
+  }
+}
+{% endstyle %}
