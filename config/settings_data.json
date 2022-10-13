@@ -3449,12 +3449,18 @@
               "mi_submenu_bg_repeat": "no-repeat"
             }
           },
+          "5d54c6ec-4011-4d84-992b-9178201f8b64": {
+            "type": "submenu_Brand",
+            "settings": {
+              "mi_mobile": false
+            }
+          },
           "1489925577150": {
             "type": "menu_parent",
             "settings": {
               "mi_text": "Exterior",
               "mi_url": "",
-              "mi_class": "",
+              "mi_class": "megamenu-item megamenu-exterior",
               "mi_mobile": true,
               "mi_pos_right": false,
               "mi_icon_enabled": false,
@@ -3465,12 +3471,23 @@
               "mi_submenu_bg_repeat": "no-repeat"
             }
           },
+          "5acc78c1-46da-4f46-ba89-9538e607a53d": {
+            "type": "submenu_shop",
+            "settings": {
+              "shop_ex_cat": "Convertible Tops;\nConvertible Brushes | e.c.brush\nConvertible Cleaners | e.c.clnr\t\nFabric Protectants | e.c.fabric\t\nRubber Seal | e.c.rubber\t\nStain | e.c.stain\t\nVinyl Protectants | e.c.vinyl\n---\nDecontamination;\nBugs | e.d.bug\nClay Bar | e.d.clay\nClay Lube | e.d.clube\nSynthetic Clay | e.d.synclay\nIron | e.d.iron\nPPF | e.d.ppf\nPre Coating | e.d.precoat\nRubber | e.d.rubber\nSap | e.d.sap\nTar & Adhesive | e.d.tar\nWaterspot | e.d.waterspot\n---\nEngine Bay;\nAPC | e.e.apc\nDegreaser | e.e.degrease\nDressing | e.e.dressing\n---\nGeneral Cleaners;\nAPC | e.e.apc\nDegreaser | e.e.degrease\n---\nHeadlights;\nCleaner | e.h.clnr\nCeramic | e.h.ceramic\nPolish | e.h.polish\nSanding | e.h.sand\nSealant | e.h.saeelant\n---\nMetal;\nAirway Wheels | e.m.airway\nCeramic | e.m.ceramic\nPolish | e.m.metal\nRouge Bars | e.m.rouge\nSealant | e.m.sealant\n---\nPPF;\nCeramic | e.ppf.ceramic\nCleaner | e.ppf.clnr\nDIY Kits | e.ppf.diy\nPolish | e.ppf.polish\nProtection | e.ppf.prot\n---\nProtection;\nCeramic Coating | e.p.coating\nCeramic Lites | e.p.lite\nCeramic Maintenance | e.p.ceram\nCeramic Sprays | e.p.ceraspray\nCeramic Wax | e.p.cerawax\nCleaner Wax | b.p.clnrwax\nDetail Spray | e.p.detailspray\nGlaze | e.p.glaze\nGraphene | e.p.graph\nMatte | e.p.matte\nMetal | e.p.metal\nSealant | e.p.sealant\nSpray Wax | e.p.spraywax\nUV Protection | e.p.uv\nWax | e.p.wax\nSample Kits | e.p.sample\n---\nTrim;\nCeramic | e.t.ceramic\nCleaner | e.t.cleaner\nRestorer | e.t.restore\nDressing | e.t.dressing\n---\nWash;\nCeramic Wash | e.w.cerawash\nFoam | e.w.foam\nFoam Cannon | e.w.cannon\nFoam Pump | e.w.foamp\nMitt, Sponge | e.w.mitt\nRinseless | e.w.rinseless\nShampoo | e.w.shampoo\nStrip Wash | e.w.strip\nTowel | e.w.towel\nWaterless | e.w.waterless\nWash & Coat | e.w.wcoat\n---\nWheels & Tire;\nAcid | w.t.acid\nBrush | e.wt.brush\nCeramic Coating | e.wt.ceramic\nIron | e.d.iron\nTire Cleaner | e.wt.tireclnr\nTire Dressing | e.wt.dressing\nWheel Cleaner | e.wt.cleaner\nWheel Sealant | e.wt.sealant\nWheel Well | e.wt.well\n---\nWindow;\nAnti Fog | e.win.fog\nCeramic Coating | e.win.ceramic\nCleaner | e.win.cleaner\nPolish | e.win.polish\nSealant | e.win.sealant\nTowel | e.d.wintowel\nWaterspot | e.d.waterspot",
+              "shop_int_cat": "",
+              "shop_pt_cat": "",
+              "shop_acc_cat": "",
+              "shop_bt_cat": "",
+              "mi_mobile": true
+            }
+          },
           "8347841a-3c1d-485b-8a0f-022455f45242": {
             "type": "menu_parent",
             "settings": {
               "mi_text": "Interior",
               "mi_url": "",
-              "mi_class": "",
+              "mi_class": "megamenu-item megamenu-interior",
               "mi_mobile": false,
               "mi_pos_right": false,
               "mi_icon_enabled": false,
@@ -3479,6 +3496,17 @@
               "mi_submenu_w": "800px",
               "mi_submenu_bg_pos": "top_left",
               "mi_submenu_bg_repeat": "no-repeat"
+            }
+          },
+          "d75aa90b-8575-4273-b949-acf3eb981397": {
+            "type": "submenu_shop",
+            "settings": {
+              "shop_ex_cat": "",
+              "shop_int_cat": "Alcantara;\nBrush | i.a.brush\nCleaner | i.a.clnr\nProtectant | i.a.prot\n---\nDash & Vinyl;\nCeramic | i.d.ceramic\nCleaner | i.d.clnr\nDetailer | i.d.detail\nProtectant | i.d.prot\nTowel | i.d.towel\nFloormats | i.d.floor\n---\nFabric;\nBrush | i.f.brush\nCleaner | i.f.clnr\nExtractor | i.f.extractor\nShampoo | i.f.shampoo\nStain | i.f.stain\nWaterproofing | i.f.waterprof\n---\nGeneral Cleaners;\nAPC | e.e.apc\nDegreaser | e.e.degrease\nDisinfectant | i.g.disinfect\n---\nLeather;\nBrush | i.l.brush\nCeramics | i.l.ceramic\nCleaner | i.l.clnr\nConditioner | i.l.condi\nProtectant | i.l.prot\nStain, Dye Transfer i.l.stain\n---\nOdor;\nAir Freshener | i.o.air\nOdor Eliminator | i.o.odor\nSmoke | i.o.smoke\n---\nWindow;\nAnti Fog | e.win.fog\nCeramic Coating | e.win.ceramic\nCleaner | e.win.cleaner\nPolish | e.win.polish\nSealant | e.win.sealant\nTowel | e.d.wintowel\nWaterspot | e.d.waterspot",
+              "shop_pt_cat": "",
+              "shop_acc_cat": "",
+              "shop_bt_cat": "",
+              "mi_mobile": true
             }
           },
           "e012424d-fed8-430f-8640-5c24be310e94": {
@@ -3486,7 +3514,7 @@
             "settings": {
               "mi_text": "Paint Correction",
               "mi_url": "",
-              "mi_class": "",
+              "mi_class": "megamenu-item megamenu-paint-correction",
               "mi_mobile": false,
               "mi_pos_right": false,
               "mi_icon_enabled": false,
@@ -3495,6 +3523,17 @@
               "mi_submenu_w": "800px",
               "mi_submenu_bg_pos": "top_left",
               "mi_submenu_bg_repeat": "no-repeat"
+            }
+          },
+          "d9378fbc-fbbf-4736-82aa-8ef9a1afbb2b": {
+            "type": "submenu_shop",
+            "settings": {
+              "shop_ex_cat": "",
+              "shop_int_cat": "",
+              "shop_pt_cat": "Backing Plate;\n3\" DA | p.b.3da\n4\" DA | p.b.4da\n5\" DA | p.b.5da\n6\" DA | p.b.6da\n1\" Rotary | p.b.1rotary\n2\" Rotary | p.b.2rotary\n3\" Rotary | p.b.3rotary\n4\" Rotary | p.b.4rotary\n5\" Rotary | p.b.5rotary\n6\" Rotary | p.b.6rotary\n7\" Rotary | p.b.7rotary\n5\" M8 | p.b.5m8\n6\" M8 | p.b.6m8\nRupes | p.b.rupes\nFLEX | p.b.flex\nAdapters | p.b.adapter\nDrill | p.b.drill\nExtensions | p.b.extend\n---\nCompound & Polish;\nCompound - Fine | p.c.fine\t\nCompound - Medium | p.c.med\t\nCompound - Heavy | p.c.heavy\t\nCleaner Wax | b.p.clnrwax\n3in1 | 3in1s\nSingle stage Compound | p.c.single\nGlaze | p.c.glaze\nSanding | e.h.sand\nCoating Primer | p.c.primer\t\nHand | p.c.hand\n---\nGlass;\nCerium Oxide | p.g.cerium\nCeramic | p.g.ceramic\nPad | p.g.glasspad\nWaterspot | e.d.waterspot\n---\nHolders;\nRacks | p.pr.holder\n---\nCleaning;\nPad Cleaner | p.c.padclnr\nBrush | p.c.brush\nInspection Spray | p.c.inspection\n---\nLighting;\nPen Light | p.l.pen\nBar Light | p.l.bar\nPro Light | p.l.pro\nMount | p.l.mount\nPaint Guage | p.l.gauge\n---\nMetal;\nAirway Wheels | e.m.airway\nCeramic | e.m.ceramic\nPolish | e.m.metal\nRouge Bars | e.m.rouge\nSealant | e.m.sealant\n---\nPads;\n1\" Pad | p.p.1inch\n2\" Pad | p.p.2inch\n3\" Pad | p.p.3inch\n4\" Pad | p.p.4inch\n5\" Pad | p.p.5inch\n6\" Pad | p.p.6inch\n7\" Pad | p.p.7inch\nHand | p.p.hand\nPad - Foam | p.p.foam\nPad - Microfiber | p.p.micro\nPad - Wool | p.p.wool\nSanding | e.h.sand\nInterface | p.p.interface\nMicro | p.p.micro\nPolishing Cone | p.p.cone\n---\nPlastic;\nCeramic | e.plastic.cera\nPolish | e.h.polish\nSanding | e.h.sand\nMini Backing Plate | p.p.plate\nHand | p.p.hand\nPad - Foam | p.p.foam\nPad - Microfiber | p.p.micro\nPad - Wool | p.p.wool\nInterface | p.p.interface\n---\nPolisher;\nHolder | p.pr.holder\nPolisher - Cordless | p.pr.cordless\nPolisher - 3\" DA | p.pr.3da\nPolisher - 5\" DA | p.pr.5da\nPolisher - 6\" DA | p.pr.6da\nPolisher - Micro | p.pr.micro\nPolisher - Rotary | p.pr.rotary\nPolisher - Forced Rotation | p.pr.force\n---\nPPF;\nCeramic | e.ppf.ceramic\nCleaner | e.ppf.clnr\nDIY Kits | e.ppf.diy\nPolish | e.ppf.polish\nProtectant | e.ppf.prot",
+              "shop_acc_cat": "",
+              "shop_bt_cat": "",
+              "mi_mobile": true
             }
           },
           "0ce65f52-84ac-4f52-bc31-334bf89ba792": {
@@ -3502,7 +3541,7 @@
             "settings": {
               "mi_text": "Accessories",
               "mi_url": "",
-              "mi_class": "",
+              "mi_class": "megamenu-item megamenu-accessories",
               "mi_mobile": false,
               "mi_pos_right": false,
               "mi_icon_enabled": false,
@@ -3513,12 +3552,23 @@
               "mi_submenu_bg_repeat": "no-repeat"
             }
           },
+          "ec3a8e2f-3c04-4395-8ccd-05f943849b93": {
+            "type": "submenu_shop",
+            "settings": {
+              "shop_ex_cat": "",
+              "shop_int_cat": "",
+              "shop_pt_cat": "",
+              "shop_acc_cat": "Applicator;\nCoating | a.a.coating\nFoam | a.a.foam\nMicrofiber | a.a.mfapp\nSuede | a.a.suede\nTire | a.a.tire\n---\nWash;\nBrush | a.w.wbrush\nMerino Wool | a.w.mwool\nMitt | a.w.mitt\nPad | a.w.wpad\nSponge | a.w.sponge\n---\nBrush;\nAlcantara | a.b.alcan\nCarpet | a.b.carpet\nDetail Brush | a.b.dbrush\nDrill Brush | a.b.drill\nHand Brush | a.b.hbrush\nLeather | a.b.leather\nPad | a.b.padb\nPet | a.b.padb\nSpoke Brush | a.b.brush\nSteelWool | a.b.steel\nTire | a.b.tire\nWoolies | a.b.woolie\n---\nTowel;\n350gsm | a.t.350\n500gsm | a.t.500\n600+ gsm | a.t.600plus\nCoating | a.t.coating\nDrying - Large | a.t.dryingL\nDrying - Small | a.t.dryingS\nGeneral Grade | a.t.general\nInterior | a.t.interior\nTowel Wash | tt.wash\nWaterless | a.t.waterless\nWax and Polish | a.t.wax\nWindow | e.d.wintowel\nWater Blade | a.t.wblade\n---\nTape;\n5mm | a.t.5\n15mm | a.t.15\n24mm | a.t.24\n36mm | a.t.36\n48mm | a.t.48\n---\nBottles;\nFoamers | a.bo.foam\nPumps | a.bo.pump\n500ml | a.bo.500\n1L | a.bo.1L\nAcid | a.bo.acid\nAlkaline | a.bo.alka\nHydro Carbon (Oils) | a.bo.HC\nSmall | a.bo.small\nTriggers | a.bo.trigger\n---\nFoam Gun;\nPressure Washer | a.f.cannon\nHand Pump | a.bo.foam\nHose | a.f.hosegun\nInterior | a.f.interior\n---\nGrit Guard;\nBucket Inserts | a.g.grit\n---\nBlowers;\nBlowers & Dryers | a.b.blower\nHoses | a.b.hoses\nMounts & Hangers | a.b.mount\n---\nWater Filtration;\nWater Systems | a.w.water\nReplacement Resins | a.w.resins\n---\nMisc;\nFilms (Carpet, Seats, Steering Wheel) | a.m.misc\n---\nApparel;\nApparels | a.ap.shirt\nBags | a.ap.bag\nBanners | a.ap.banner\nKey Chains misc | a.ap.key",
+              "shop_bt_cat": "",
+              "mi_mobile": true
+            }
+          },
           "d289372f-7691-4ac7-921d-c43bf68d8ac7": {
             "type": "menu_parent",
             "settings": {
               "mi_text": "Boat & RV",
               "mi_url": "",
-              "mi_class": "",
+              "mi_class": "megamenu-item megamenu-boat",
               "mi_mobile": false,
               "mi_pos_right": false,
               "mi_icon_enabled": false,
@@ -3527,6 +3577,17 @@
               "mi_submenu_w": "800px",
               "mi_submenu_bg_pos": "top_left",
               "mi_submenu_bg_repeat": "no-repeat"
+            }
+          },
+          "454d396c-a627-4f73-8847-5c80645a64ea": {
+            "type": "submenu_shop",
+            "settings": {
+              "shop_ex_cat": "",
+              "shop_int_cat": "",
+              "shop_pt_cat": "",
+              "shop_acc_cat": "",
+              "shop_bt_cat": "GelCoat Compound & Polish;\nCompound - Fine | b.c.boatfine\nCompound - Medium | b.c.boatmed\nCompound - Heavy | b.c.boatheavy\n3in1 | b.c.boat3in1\n---\nGeneral Cleaners;\nAPC | e.e.apc\nDegreaser | e.e.degrease\nDisinfectant | i.g.disinfect\nWaterspot | b.g.water\n---\nGlass;\nCeramic Coating | b.g.ceramic\nCleaner | b.g.clnr\nPolishing | b.g.polish\nSealant | b.g.sealant\nTowel | b.g.towel\nWaterspot | e.d.wintowel\n---\nInterior;\nVinyl Cleaner | b.i.vinylclnr\nVinyl Conditioner | b.i.vinylcon\nVinyl Protectant | b.i.vinylprot\nMildew Remover | b.i.mildewr\nMildew Guard | b.i.mildewg\nFabric Cleaner | b.i.fabricclnr\nFabric Guard | b.i.fabricg\nLeather\/Vinyl Ceramic | b.i.lvceramic\nWood\/Deck | b.i.wood\n---\nMetal;\nAirway Wheels | e.m.airway\nCeramic | e.m.ceramic\nPolish | e.m.metal\nRouge Bars | e.m.rouge\nSealant | e.m.sealant\n---\nPolish;\n3in1 | b.p.3in1\nCleaner Wax | b.p.clnrwax\nCompound - Fine | b.p.fine\nCompound - Medium | b.p.med\nCompound - Heavy | b.p.heavy\nGlaze | e.p.glaze\nPolish & Seal | b.p.polseal\nSanding | e.h.sand\n---\nProtection;\nCeramic Coating | b.p.ceramic\nCeramic Spray | b.p.ceramicspray\nSealant | b.p.sealant\nWax | b.p.wax\nSpray Sealant | b.p.spsealant\nSpray Wax | b.p.spwax\nDetail Spray | b.p.dspray\nUV Protection | b.p.uvprot\n---\nWash;\nCeramic Wash | b.w.cerawash\nFoam | b.w.foam\nFoam Cannon | e.w.cannon\nFoam Pump | a.bo.pump\nMitt | a.w.mitt\nRinseless | e.w.rinseless\nShampoo | b.w.shampoo\nStrip Wash | e.w.strip\nTowel | b.w.towel\nWaterless | e.w.waterless",
+              "mi_mobile": true
             }
           },
           "546cccca-8007-4b00-a66e-2520a89a6f02": {
@@ -3545,11 +3606,67 @@
               "mi_submenu_bg_repeat": "no-repeat"
             }
           },
+          "446e5a69-1d49-4e3f-af23-772d4074ce76": {
+            "type": "submenu_html",
+            "settings": {
+              "mi_mobile": false,
+              "mi_ct_w": "3",
+              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla.ca\/apps\/bundles\/bundle\/69088\">Polisher Kit<\/a><\/p>"
+            }
+          },
+          "8b4aa8fc-93ea-4d2d-8c62-738f7d7cf02e": {
+            "type": "submenu_html",
+            "settings": {
+              "mi_mobile": false,
+              "mi_ct_w": "3",
+              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla.ca\/apps\/bundles\/bundle\/68424\">Ceramic Kit<\/a><\/p>"
+            }
+          },
+          "09977f15-8111-4d84-814b-4ca6cea85a6a": {
+            "type": "submenu_html",
+            "settings": {
+              "mi_mobile": false,
+              "mi_ct_w": "3",
+              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla.ca\/apps\/bundles\/bundle\/69089\">Wash Kit<\/a><\/p>"
+            }
+          },
+          "b104b81d-07a0-4b25-a57e-2480e75cddb3": {
+            "type": "submenu_html",
+            "settings": {
+              "mi_mobile": false,
+              "mi_ct_w": "3",
+              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla.ca\/apps\/bundles\/bundle\/69090\">Wheel Kit<\/a><\/p>"
+            }
+          },
+          "e298883a-acc7-40a2-b88c-1a4ca07615d8": {
+            "type": "submenu_html",
+            "settings": {
+              "mi_mobile": false,
+              "mi_ct_w": "3",
+              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla.ca\/apps\/bundles\/bundle\/69091\">Interior Kit<\/a><\/p>"
+            }
+          },
           "d65e1c9f-1975-4b82-9aca-3067d359f218": {
             "type": "menu_parent",
             "settings": {
-              "mi_text": "What's New Sale",
-              "mi_url": "",
+              "mi_text": "What's <span class=\"ampersand\">New<\/span>",
+              "mi_url": "https:\/\/carzilla-boutique-detailing.myshopify.com\/collections\/all-products?sort_by=created-descending",
+              "mi_class": "",
+              "mi_mobile": false,
+              "mi_pos_right": false,
+              "mi_icon_enabled": false,
+              "mmenu_label_text_color": "#ffffff",
+              "mmenu_label_bg_color": "#000000",
+              "mi_submenu_w": "800px",
+              "mi_submenu_bg_pos": "top_left",
+              "mi_submenu_bg_repeat": "no-repeat"
+            }
+          },
+          "a8dc70de-0b09-42b0-8d68-a308e3eb69c7": {
+            "type": "menu_parent",
+            "settings": {
+              "mi_text": "<span class=\"ampersand\">Sale<\/span>!",
+              "mi_url": "\/collections\/all-sale-items",
               "mi_class": "",
               "mi_mobile": false,
               "mi_pos_right": false,
@@ -3565,7 +3682,7 @@
             "type": "menu_parent",
             "settings": {
               "mi_text": "Free Workshops",
-              "mi_url": "",
+              "mi_url": "https:\/\/carzilla-boutique-detailing.myshopify.com\/pages\/events",
               "mi_class": "",
               "mi_mobile": false,
               "mi_pos_right": false,
@@ -3576,18 +3693,39 @@
               "mi_submenu_bg_pos": "top_left",
               "mi_submenu_bg_repeat": "no-repeat"
             }
+          },
+          "67f05b37-babc-484c-b3d7-34bdb827f7bd": {
+            "type": "submenu_html",
+            "settings": {
+              "mi_mobile": false,
+              "mi_ct_w": "3",
+              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla-boutique-detailing.myshopify.com\/pages\/events\">Polishing Workshop<\/a><\/p>"
+            }
           }
         },
         "block_order": [
           "1489496582568",
+          "5d54c6ec-4011-4d84-992b-9178201f8b64",
           "1489925577150",
+          "5acc78c1-46da-4f46-ba89-9538e607a53d",
           "8347841a-3c1d-485b-8a0f-022455f45242",
+          "d75aa90b-8575-4273-b949-acf3eb981397",
           "e012424d-fed8-430f-8640-5c24be310e94",
+          "d9378fbc-fbbf-4736-82aa-8ef9a1afbb2b",
           "0ce65f52-84ac-4f52-bc31-334bf89ba792",
+          "ec3a8e2f-3c04-4395-8ccd-05f943849b93",
           "d289372f-7691-4ac7-921d-c43bf68d8ac7",
+          "454d396c-a627-4f73-8847-5c80645a64ea",
           "546cccca-8007-4b00-a66e-2520a89a6f02",
+          "446e5a69-1d49-4e3f-af23-772d4074ce76",
+          "8b4aa8fc-93ea-4d2d-8c62-738f7d7cf02e",
+          "09977f15-8111-4d84-814b-4ca6cea85a6a",
+          "b104b81d-07a0-4b25-a57e-2480e75cddb3",
+          "e298883a-acc7-40a2-b88c-1a4ca07615d8",
           "d65e1c9f-1975-4b82-9aca-3067d359f218",
-          "336df623-f4f2-4c6c-af19-9bf222ee9b7d"
+          "a8dc70de-0b09-42b0-8d68-a308e3eb69c7",
+          "336df623-f4f2-4c6c-af19-9bf222ee9b7d",
+          "67f05b37-babc-484c-b3d7-34bdb827f7bd"
         ],
         "settings": {
           "mmenu_use": true,

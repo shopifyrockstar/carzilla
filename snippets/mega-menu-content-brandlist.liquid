@@ -8,7 +8,7 @@
            <div class="menu">
               {% for collection in collections %}
                     {% if collection.title contains 'Brand' %}
-             <div class='col-sm-3 mobile-enabled'>
+             <div class='col-sm-3 mobile-enabled brands-sub-items'>
                   <div class="row m-0">
                    <a class= 'smenu' href="{{ collection.url }}">  {{ collection.title | remove: "Brand:"  }}</a>
                   </div>
