@@ -271,7 +271,30 @@
 .megamenu-item .tabvet-content-wrapper{
   float:left;
   width:70%;
+  display: flex;
+  align-items: flex-start;
 }
+.megamenu-item .tabvet-content-wrapper .tabvetcontent{
+  width: 30%;
+}
+.megamenu-item .tabvet-content-wrapper .tabvetcontent .cmenu .col-sm-3{
+  width: 100%;
+}
+.megamenu-item .tabvet-content-wrapper .tabvetcontent:first-child{
+  /* display: unset !important; */
+}
+.megamenu-item .tabvet-content-wrapper .tabvet-product-wrapper{
+  width: 70%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.megamenu-item .tabvet-content-wrapper .tabvet-product-wrapper .bss_pl_img img{
+  display: none !important;
+}
+
+
 
 .category-wrapper:after{
   content:'';

@@ -128,13 +128,20 @@ $(".single-option-selector").mouseleave(function(){
 //     })
 //   })
 
-document.getElementsByClassName("tablinks")[0].click();
+// document.getElementsByClassName("tablinks")[0].click();
+$('.megamenu-item').each(function(){
+  $(this).find(".tabvetcontent").hide();
+  $(this).find(".tablinks").removeClass("active");
+  $(this).find('.tabvet .tablinks:first-child').addClass('active');
+  $(this).find('.tabvet-content-wrapper .tabvetcontent:first-child').show();
+})
+
 function openCity(evt, cityName) {
   // Declare all variables
   var i, tabcontent, tablinks;
 console.log('z',cityName);
   // Get all elements with class="tabcontent" and hide them
-   $(".tabvetcontent").hide();
+  $(".tabvetcontent").hide();
   $(".tablinks").removeClass("active");
   $("."+cityName).show();  
 

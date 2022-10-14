@@ -42,23 +42,41 @@
 
                 <div class="tabvet-content-wrapper">
                     {% for e in ext_cat %}
-                    <div id="c{{forloop.index}}" class="tabvetcontent c{{forloop.index}}">
-                    {% assign ex = e | split: ';' %}
-                    {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
-                        {% for v in ext_cat_in %}
-                            {% assign splitv = v | split :'|'%}
-                            {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                        <div id="c{{forloop.index}}" class="tabvetcontent c{{forloop.index}}">
+                            {% assign ex = e | split: ';' %}
+                            {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
+                            {% for v in ext_cat_in %}
+                                {% assign splitv = v | split :'|'%}
+                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
 
-                            <div class="cmenu row">
-                                <div class='col-sm-3'>
-                                    {{ splitv[0] | link_to: url }}
+                                <div class="cmenu row">
+                                    <div class='col-sm-3'>
+                                        {{ splitv[0] | link_to: url }}
+                                    </div>
                                 </div>
-                            </div>
 
-                        {% endfor %}
+                            {% endfor %}
 
-                    </div>
+                        </div>
                     {% endfor %}
+                    <div class="tabvet-product-wrapper">
+                        <div class="left-product-wrapper">
+                            {% assign left_product_exterior = all_products['carpro-cquartz-cquk-30-50ml-kit-new-no-reload'] %}
+                            <a class="megamenu-product" href="{{ left_product_exterior.url }}">
+                                <img src="{{ left_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ left_product_exterior.title }}</h5>
+                                <h5>{{ left_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                        <div class="right-product-wrapper">
+                            {% assign right_product_exterior = all_products['gyeon-mohs-evo-lightbox-30ml-50ml-100ml'] %}
+                            <a class="megamenu-product" href="{{ right_product_exterior.url }}">
+                                <img src="{{ right_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ right_product_exterior.title }}</h5>
+                                <h5>{{ right_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}
@@ -89,6 +107,24 @@
                             {% endfor %}
                         </div>
                     {% endfor %}
+                    <div class="tabvet-product-wrapper">
+                        <div class="left-product-wrapper">
+                            {% assign left_product_exterior = all_products['double-black-xpress-interior-cleaner-16oz'] %}
+                            <a class="megamenu-product" href="{{ left_product_exterior.url }}">
+                                <img src="{{ left_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ left_product_exterior.title }}</h5>
+                                <h5>{{ left_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                        <div class="right-product-wrapper">
+                            {% assign right_product_exterior = all_products['gyeon-q-m-interior-detailer-500ml'] %}
+                            <a class="megamenu-product" href="{{ right_product_exterior.url }}">
+                                <img src="{{ right_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ right_product_exterior.title }}</h5>
+                                <h5>{{ right_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}
@@ -117,6 +153,24 @@
                             {% endfor %}
                         </div>
                     {% endfor %}
+                    <div class="tabvet-product-wrapper">
+                        <div class="left-product-wrapper">
+                            {% assign left_product_exterior = all_products['shinemate-ex620-5-15mm-da-polisher-kit'] %}
+                            <a class="megamenu-product" href="{{ left_product_exterior.url }}">
+                                <img src="{{ left_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ left_product_exterior.title }}</h5>
+                                <h5>{{ left_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                        <div class="right-product-wrapper">
+                            {% assign right_product_exterior = all_products['shinemate-eb351-5-15mm-throw-cordless-polisher-kit'] %}
+                            <a class="megamenu-product" href="{{ right_product_exterior.url }}">
+                                <img src="{{ right_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ right_product_exterior.title }}</h5>
+                                <h5>{{ right_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}
@@ -145,6 +199,24 @@
                             {% endfor %}
                         </div>
                     {% endfor %}
+                    <div class="tabvet-product-wrapper">
+                        <div class="left-product-wrapper">
+                            {% assign left_product_exterior = all_products['detail-popo-heavy-rain-1200gsm-drying-towel-100x65cm'] %}
+                            <a class="megamenu-product" href="{{ left_product_exterior.url }}">
+                                <img src="{{ left_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ left_product_exterior.title }}</h5>
+                                <h5>{{ left_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                        <div class="right-product-wrapper">
+                            {% assign right_product_exterior = all_products['carpro-dilute-bottle-500ml-1l'] %}
+                            <a class="megamenu-product" href="{{ right_product_exterior.url }}">
+                                <img src="{{ right_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ right_product_exterior.title }}</h5>
+                                <h5>{{ right_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}
@@ -173,6 +245,24 @@
                             {% endfor %}
                         </div>
                     {% endfor %}
+                    <div class="tabvet-product-wrapper">
+                        <div class="left-product-wrapper">
+                            {% assign left_product_exterior = all_products['gyeon-qr-gelcoat-100ml'] %}
+                            <a class="megamenu-product" href="{{ left_product_exterior.url }}">
+                                <img src="{{ left_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ left_product_exterior.title }}</h5>
+                                <h5>{{ left_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                        <div class="right-product-wrapper">
+                            {% assign right_product_exterior = all_products['gyeon-q-aero-100ml'] %}
+                            <a class="megamenu-product" href="{{ right_product_exterior.url }}">
+                                <img src="{{ right_product_exterior.featured_image | img_url: '200x' }}">
+                                <h5>{{ right_product_exterior.title }}</h5>
+                                <h5>{{ right_product_exterior.price | money }}</h5>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}
