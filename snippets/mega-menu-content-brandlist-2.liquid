@@ -1,0 +1,92 @@
+{%- assign _full_width_class = '' -%}
+{%- if _submenu_w == '100%' or _submenu_w == '300%' or _submenu_w == '338%' or _submenu_w == '1230px' -%}
+    {%- assign _full_width_class = 'full-width-sub-menu' -%}
+{%- endif -%}
+
+    <div class="{{_full_width_class}} mobile-enabled">
+        <div class="menu new-brand-menu-wrapper">
+            {% for collection in collections %}
+                {% if collection.title contains 'Brand' %}
+                    {% assign collection_title = collection.title | downcase %}
+                    {% comment %} {% if collection_title contains 'brand: 3' %}
+                        <div class="digits-category-wrapper">
+                    {% endif %} {% endcomment %}
+                    {% if collection_title contains 'brand: a' or collection_title contains 'brand: b' or collection_title contains 'brand: c' or collection_title contains 'brand: d' or collection_title contains 'brand: 3' %}
+                        <div class="adparent-category-wrapper">
+                    {% endif %}
+
+                    {% if collection_title contains 'brand: e' or collection_title contains 'brand: f' or collection_title contains 'brand: g' or collection_title contains 'brand: h' or collection_title contains 'brand: i' or collection_title contains 'brand: j' or collection_title contains 'brand: k' or collection_title contains 'brand: l' %}
+                        <div class="ek-category-wrapper">
+                    {% endif %}
+
+                    {% if collection_title contains 'brand: m' or collection_title contains 'brand: n' or collection_title contains 'brand: o' or collection_title contains 'brand: p' or collection_title contains 'brand: q' or collection_title contains 'brand: r' %}
+                        <div class="lr-category-wrapper">
+                    {% endif %}
+
+                    {% if collection_title contains 'brand: s' or collection_title contains 'brand: t' or collection_title contains 'brand: u' or collection_title contains 'brand: v' or collection_title contains 'brand: w' or collection_title contains 'brand: x' or collection_title contains 'brand: y' or collection_title contains 'brand: z' %}
+                        <div class="sz-category-wrapper">
+                    {% endif %}
+                    <div class='col-sm-3 mobile-enabled brands-sub-items-2'>
+                        <div class="row m-0">
+                            <a class= 'smenu' href="{{ collection.url }}" data-title="{{ collection.title }}">  {{ collection.title | remove: "Brand:"  }}</a>
+                        </div>
+                    </div>
+                    {% comment %} {% if collection_title contains 'brand: 3' %}
+                        </div>
+                    {% endif %} {% endcomment %}
+
+                    {% if collection_title contains 'brand: a' or collection_title contains 'brand: b' or collection_title contains 'brand: c' or collection_title contains 'brand: d' or collection_title contains 'brand: 3' %}
+                        </div>
+                    {% endif %}
+
+                    {% if collection_title contains 'brand: e' or collection_title contains 'brand: f' or collection_title contains 'brand: g' or collection_title contains 'brand: h' or collection_title contains 'brand: i' or collection_title contains 'brand: j' or collection_title contains 'brand: k' or collection_title contains 'brand: l' %}
+                        </div>
+                    {% endif %}
+
+                    {% if collection_title contains 'brand: m' or collection_title contains 'brand: n' or collection_title contains 'brand: o' or collection_title contains 'brand: p' or collection_title contains 'brand: q' or collection_title contains 'brand: r' %}
+                        </div>
+                    {% endif %}
+
+                    {% if collection_title contains 'brand: s' or collection_title contains 'brand: t' or collection_title contains 'brand: u' or collection_title contains 'brand: v' or collection_title contains 'brand: w' or collection_title contains 'brand: x' or collection_title contains 'brand: y' or collection_title contains 'brand: z' %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+{% style %}
+  .smenu {
+   display: block;
+    position: relative;
+    margin: 0;
+    padding: 5px 10px 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+@media only screen and (max-width: 600px) {
+  .smenu{
+    border-bottom: 1px solid lightgrey;
+	}
+}
+
+{% endstyle %}
+
+<script>
+    $(document).ready(function(){
+        //$(".digits-category-wrapper").wrapAll('<div class="digits-wrapper category-wrapper" />');
+        $(".adparent-category-wrapper").wrapAll('<div class="adparent-wrapper category-wrapper" />');
+        $(".ek-category-wrapper").wrapAll('<div class="ek-wrapper category-wrapper" />');
+        $(".lr-category-wrapper").wrapAll('<div class="lr-wrapper category-wrapper" />');
+        $(".sz-category-wrapper").wrapAll('<div class="sz-wrapper category-wrapper" />');
+        
+        //$(".digits-wrapper.category-wrapper").prepend('<h4 class="smenu">Digits</h4>');
+        $(".adparent-wrapper.category-wrapper").prepend('<h4 class="smenu">A - D</h4>');
+        $(".ek-wrapper.category-wrapper").prepend('<h4 class="smenu">E - L</h4>');
+        $(".lr-wrapper.category-wrapper").prepend('<h4 class="smenu">M - R</h4>');
+        $(".sz-wrapper.category-wrapper").prepend('<h4 class="smenu">S - Z</h4>');
+    })    
+</script>

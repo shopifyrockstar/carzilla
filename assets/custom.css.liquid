@@ -244,11 +244,82 @@
   padding: 20px;
 }
 
+@media (min-width:992px){
+  #shopify-section-header-menu2{
+    display:block;
+  }
+  #shopify-section-header-menu1{
+    display:none;
+  }
+  #header-phantom .mega-menu-modules .section-wrapper.hidden#shopify-section-header-menu1{
+    display:none !important;
+  }
+}
+@media (max-width:991px){
+  #shopify-section-header-menu2{
+    display:none;
+  }
+  #shopify-section-header-menu1{
+    display:block;
+  }
+}
+
+
+.megamenu-item .tabvet{
+  float:left;
+}
+.megamenu-item .tabvet-content-wrapper{
+  float:left;
+  width:70%;
+  display: flex;
+  align-items: flex-start;
+}
+.megamenu-item .tabvet-content-wrapper .tabvetcontent{
+  width: 30%;
+}
+.megamenu-item .tabvet-content-wrapper .tabvetcontent .cmenu .col-sm-3{
+  width: 100%;
+}
+.megamenu-item .tabvet-content-wrapper .tabvetcontent:first-child{
+  /* display: unset !important; */
+}
+.megamenu-item .tabvet-content-wrapper .tabvet-product-wrapper{
+  width: 70%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.megamenu-item .tabvet-content-wrapper .tabvet-product-wrapper .bss_pl_img img{
+  display: none !important;
+}
+.tabvet-product-wrapper .megamenu-product h5{
+  font-family: "Langdon Regula" ,sans-serif !important;
+  text-transform: none !important;
+  font-size: 13px;
+  font-weight: 500;  
+  letter-spacing: unset;
+  width: 80%;
+}
 
 
 
-
-
+.category-wrapper:after{
+  content:'';
+  clear: both;
+  display: block;
+}
+.category-wrapper .col-sm-3{
+  width: 100%;
+}
+.category-wrapper h4.smenu{
+  font-size: 20px;
+}
+.new-brand-menu-wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 
 
 

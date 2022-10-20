@@ -132,7 +132,7 @@
             {%- for k in (next_item_index..max_block) -%}
             <!---- check next next item is sub or nor --->
             {%- if section.blocks[k].type == 'submenu_html' or section.blocks[k].type == 'submenu_linklist' or section.blocks[k].type == 'submenu_shop' or section.blocks[k].type == 'submenu_product' or section.blocks[k].type == 'submenu_products' or section.blocks[k].type == 'submenu_Brand' -%}
-                {%- include 'section-mega-menu-subitem' -%}
+                {%- include 'section-mega-menu-subitem' with _class -%}
             	{%- assign i = k -%}
             {%- else -%}
             	{%- break -%}
