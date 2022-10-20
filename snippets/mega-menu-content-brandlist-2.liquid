@@ -12,7 +12,7 @@
                         <div class="digits-category-wrapper">
                     {% endif %} {% endcomment %}
                     {% if collection_title contains 'brand: a' or collection_title contains 'brand: b' or collection_title contains 'brand: c' or collection_title contains 'brand: d' or collection_title contains 'brand: 3' %}
-                        <div class="ad-category-wrapper">
+                        <div class="adparent-category-wrapper">
                     {% endif %}
 
                     {% if collection_title contains 'brand: e' or collection_title contains 'brand: f' or collection_title contains 'brand: g' or collection_title contains 'brand: h' or collection_title contains 'brand: i' or collection_title contains 'brand: j' or collection_title contains 'brand: k' or collection_title contains 'brand: l' %}
@@ -78,13 +78,13 @@
 <script>
     $(document).ready(function(){
         //$(".digits-category-wrapper").wrapAll('<div class="digits-wrapper category-wrapper" />');
-        $(".ad-category-wrapper").wrapAll('<div class="ad-wrapper category-wrapper" />');
+        $(".adparent-category-wrapper").wrapAll('<div class="adparent-wrapper category-wrapper" />');
         $(".ek-category-wrapper").wrapAll('<div class="ek-wrapper category-wrapper" />');
         $(".lr-category-wrapper").wrapAll('<div class="lr-wrapper category-wrapper" />');
         $(".sz-category-wrapper").wrapAll('<div class="sz-wrapper category-wrapper" />');
         
         //$(".digits-wrapper.category-wrapper").prepend('<h4 class="smenu">Digits</h4>');
-        $(".ad-wrapper.category-wrapper").prepend('<h4 class="smenu">A - D</h4>');
+        $(".adparent-wrapper.category-wrapper").prepend('<h4 class="smenu">A - D</h4>');
         $(".ek-wrapper.category-wrapper").prepend('<h4 class="smenu">E - L</h4>');
         $(".lr-wrapper.category-wrapper").prepend('<h4 class="smenu">M - R</h4>');
         $(".sz-wrapper.category-wrapper").prepend('<h4 class="smenu">S - Z</h4>');
