@@ -3373,30 +3373,6 @@
               "mi_submenu_bg_pos": "top_left",
               "mi_submenu_bg_repeat": "no-repeat"
             }
-          },
-          "1566253280642": {
-            "type": "menu_parent",
-            "settings": {
-              "mi_text": "Free Workshops",
-              "mi_url": "https:\/\/carzilla-boutique-detailing.myshopify.com\/pages\/events",
-              "mi_class": "",
-              "mi_mobile": true,
-              "mi_pos_right": false,
-              "mi_icon_enabled": true,
-              "mmenu_label_text_color": "#ffffff",
-              "mmenu_label_bg_color": "#000000",
-              "mi_submenu_w": "800px",
-              "mi_submenu_bg_pos": "top_left",
-              "mi_submenu_bg_repeat": "no-repeat"
-            }
-          },
-          "1590263895406": {
-            "type": "submenu_html",
-            "settings": {
-              "mi_mobile": true,
-              "mi_ct_w": "3",
-              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla-boutique-detailing.myshopify.com\/pages\/events\">Polishing Workshop<\/a><\/p>"
-            }
           }
         },
         "block_order": [
@@ -3409,9 +3385,7 @@
           "baf22257-2bb4-472e-9941-c15356e26756",
           "f827512a-7be8-40c1-87cc-1f391a49566f",
           "1488204458315",
-          "1495465858393",
-          "1566253280642",
-          "1590263895406"
+          "1495465858393"
         ],
         "settings": {
           "mmenu_use": true,
@@ -3677,30 +3651,6 @@
               "mi_submenu_bg_pos": "top_left",
               "mi_submenu_bg_repeat": "no-repeat"
             }
-          },
-          "336df623-f4f2-4c6c-af19-9bf222ee9b7d": {
-            "type": "menu_parent",
-            "settings": {
-              "mi_text": "Free Workshops",
-              "mi_url": "https:\/\/carzilla-boutique-detailing.myshopify.com\/pages\/events",
-              "mi_class": "",
-              "mi_mobile": false,
-              "mi_pos_right": false,
-              "mi_icon_enabled": false,
-              "mmenu_label_text_color": "#ffffff",
-              "mmenu_label_bg_color": "#000000",
-              "mi_submenu_w": "800px",
-              "mi_submenu_bg_pos": "top_left",
-              "mi_submenu_bg_repeat": "no-repeat"
-            }
-          },
-          "67f05b37-babc-484c-b3d7-34bdb827f7bd": {
-            "type": "submenu_html",
-            "settings": {
-              "mi_mobile": false,
-              "mi_ct_w": "3",
-              "mi_ct_html": "<p><a style=\"font-weight:bold\" href=\"https:\/\/carzilla-boutique-detailing.myshopify.com\/pages\/events\">Polishing Workshop<\/a><\/p>"
-            }
           }
         },
         "block_order": [
@@ -3723,9 +3673,7 @@
           "b104b81d-07a0-4b25-a57e-2480e75cddb3",
           "e298883a-acc7-40a2-b88c-1a4ca07615d8",
           "d65e1c9f-1975-4b82-9aca-3067d359f218",
-          "a8dc70de-0b09-42b0-8d68-a308e3eb69c7",
-          "336df623-f4f2-4c6c-af19-9bf222ee9b7d",
-          "67f05b37-babc-484c-b3d7-34bdb827f7bd"
+          "a8dc70de-0b09-42b0-8d68-a308e3eb69c7"
         ],
         "settings": {
           "mmenu_use": true,
@@ -3910,7 +3858,7 @@
             "type": "image",
             "settings": {
               "slide_img_use": true,
-              "slide_img": "shopify:\/\/shop_images\/new-gyeon-evo-ceramic-coatings-carzilla-og2_847c3d35-bd45-4bfd-9ee4-e2cd28c7b1bf.jpg",
+              "slide_img": "shopify:\/\/shop_images\/new-gyeon-evo-ceramic-coatings-carzilla_2d50c6bb-afa9-411e-8697-a3d64f5eb289.jpg",
               "slide_vid": "",
               "slide_head": "",
               "slide_capt": "",
@@ -3935,6 +3883,7 @@
           },
           "header-slideshow-0": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "slide_img_use": true,
               "slide_img": "shopify:\/\/shop_images\/carzilla-moved_a5ba0dd2-ae81-4402-a6fd-5598261097cd.jpg",

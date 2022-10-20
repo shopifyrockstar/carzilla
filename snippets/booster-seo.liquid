@@ -312,15 +312,23 @@ Organization and Website Schema Markup
 {%- if product.metafields.kudobuzz.reviews_count and product.metafields.kudobuzz.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.kudobuzz.reviews_count }},
+"reviewCount": {{ product.metafields.kudobuzz.reviews_count }},
 "ratingValue": {{ product.metafields.kudobuzz.review_rating }}
+}
+{%- endif -%}
+{%- elsif prs == 'ali_reviews' -%}
+{%- if product.metafields.alireviews.seo_rating_review_key_script -%}
+,"aggregateRating": {
+"@type": "AggregateRating",
+"reviewCount": {{ product.metafields.alireviews.seo_rating_review_key_script | split: '"reviewCount": "' | last | split: '"' | first | plus: 0 }},
+"ratingValue": {{ product.metafields.alireviews.seo_rating_review_key_script | split: '"ratingValue": "' | last | split: '"' | first | plus: 0 }}
 }
 {%- endif -%}
 {%- elsif prs == 'okendo' -%}
 {%- if product.metafields.okendo.RatingAndReviewAverageValue and product.metafields.okendo.RatingAndReviewAverageValue != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.okendo.RatingAndReviewCount }},
+"reviewCount": {{ product.metafields.okendo.RatingAndReviewCount }},
 "ratingValue": {{ product.metafields.okendo.RatingAndReviewAverageValue }}
 }
 {%- endif -%}
@@ -328,7 +336,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.eggviews.reviews_count and product.metafields.eggviews.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.eggviews.reviews_count }},
+"reviewCount": {{ product.metafields.eggviews.reviews_count }},
 "ratingValue": {{ product.metafields.eggviews.reviews_average }}
 }
 {%- endif -%}
@@ -336,7 +344,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.opinew_metafields.reviews_count and product.metafields.opinew_metafields.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.opinew_metafields.reviews_count }},
+"reviewCount": {{ product.metafields.opinew_metafields.reviews_count }},
 "ratingValue": {{ product.metafields.opinew_metafields.reviews_average }}
 }
 {%-endif-%}
@@ -344,7 +352,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.orankl.review_count and product.metafields.orankl.review_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.orankl.review_count }},
+"reviewCount": {{ product.metafields.orankl.review_count }},
 "ratingValue": {{ product.metafields.orankl.rating }}
 }
 {%- endif -%}
@@ -352,7 +360,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.reviewscouk.reviews_count and product.metafields.reviewscouk.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.reviewscouk.total }},
+"reviewCount": {{ product.metafields.reviewscouk.total }},
 "ratingValue": {{ product.metafields.reviewscouk.rating }}
 }
 {%- endif -%}
@@ -360,7 +368,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.loox.num_reviews and product.metafields.loox.num_reviews != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.loox.num_reviews }},
+"reviewCount": {{ product.metafields.loox.num_reviews }},
 "ratingValue": {{ product.metafields.loox.avg_rating }}
 }
 {%- endif -%}
@@ -368,7 +376,7 @@ Organization and Website Schema Markup
 {% if product.metafields.ryviu and product.metafields.ryviu.product_reviews_info != "0;0" %}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.ryviu.product_reviews_info | split: ';' | first }},
+"reviewCount": {{ product.metafields.ryviu.product_reviews_info | split: ';' | first }},
 "ratingValue": {{ product.metafields.ryviu.product_reviews_info | split: ';' | last }}
 }
 {%- endif -%}
@@ -376,7 +384,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.vnreviews.reviewCount and product.metafields.vnreviews.reviewCount != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.vnreviews.reviewCount }},
+"reviewCount": {{ product.metafields.vnreviews.reviewCount }},
 "ratingValue": {{ product.metafields.vnreviews.ratingValue }}
 }
 {%- endif -%}
@@ -384,7 +392,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.yotpo.reviews_count }},
+"reviewCount": {{ product.metafields.yotpo.reviews_count }},
 "ratingValue": {{ product.metafields.yotpo.reviews_average }}
 }
 {%- endif -%}
@@ -392,7 +400,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.spr.reviews and product.metafields.spr.reviews contains "AggregateRating" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' |first | plus: 0 }},
+"reviewCount": {{ product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' |first | plus: 0 }},
 "ratingValue": {{ product.metafields.spr.reviews | split: '"ratingValue": "' | last | split: '"' |first | plus: 0 }}
 }
 {%- endif -%}
@@ -400,7 +408,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.rivio.avg_rate and product.metafields.rivio.avg_rate != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.rivio.reviews_count }},
+"reviewCount": {{ product.metafields.rivio.reviews_count }},
 "ratingValue": {{ product.metafields.rivio.reviews_average }}
 }
 {%- endif -%}
@@ -408,7 +416,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.product_schema and product.metafields.product_schema.th_ratingCount and product.metafields.product_schema.th_ratingCount != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.product_schema.th_ratingCount }},
+"reviewCount": {{ product.metafields.product_schema.th_ratingCount }},
 "ratingValue": {{ product.metafields.product_schema.th_ratingValue }}
 }
 {%- endif -%}
@@ -416,7 +424,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.ssw and product.metafields.ssw['review'].count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.ssw['review'].count }},
+"reviewCount": {{ product.metafields.ssw['review'].count }},
 "ratingValue": {{ product.metafields.ssw['review'].avg }}
 }
 {%- endif -%}
@@ -424,7 +432,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.stamped.reviews_count and product.metafields.stamped.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.stamped.reviews_count }},
+"reviewCount": {{ product.metafields.stamped.reviews_count }},
 "ratingValue": {{ product.metafields.stamped.reviews_average }}
 }
 {%- endif -%}
@@ -432,17 +440,25 @@ Organization and Website Schema Markup
 {%- if product.metafields.areviews.product_reviews -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.areviews.product_reviews | split: "'reviewCount' content='" | last | split: "'" | first | plus: 0 }},
+"reviewCount": {{ product.metafields.areviews.product_reviews | split: "'reviewCount' content='" | last | split: "'" | first | plus: 0 }},
 "ratingValue": {{ product.metafields.areviews.product_reviews | split: "'ratingValue' content='" | last | split: "'" | first | plus: 0 }}
 }
 {%- endif -%}
 {%- endif -%}
 {%- else -%}
 
+{%- if product.metafields.alireviews.seo_rating_review_key_script -%}
+,"aggregateRating": {
+"@type": "AggregateRating",
+"reviewCount": {{ product.metafields.alireviews.seo_rating_review_key_script | split: '"reviewCount": "' | last | split: '"' | first | plus: 0 }},
+"ratingValue": {{ product.metafields.alireviews.seo_rating_review_key_script | split: '"ratingValue": "' | last | split: '"' | first | plus: 0 }}
+}
+{%- endif -%}
+
 {%- if product.metafields.eggviews.reviews_count and product.metafields.eggviews.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.eggviews.reviews_count }},
+"reviewCount": {{ product.metafields.eggviews.reviews_count }},
 "ratingValue": {{ product.metafields.eggviews.reviews_average }}
 }
 {%- endif -%}
@@ -450,7 +466,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.areviews.product_reviews -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.areviews.product_reviews | split: "'reviewCount' content='" | last | split: "'" | first | plus: 0 }},
+"reviewCount": {{ product.metafields.areviews.product_reviews | split: "'reviewCount' content='" | last | split: "'" | first | plus: 0 }},
 "ratingValue": {{ product.metafields.areviews.product_reviews | split: "'ratingValue' content='" | last | split: "'" | first | plus: 0 }}
 }
 {%- endif -%}
@@ -458,7 +474,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.opinew_metafields.reviews_count and product.metafields.opinew_metafields.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.opinew_metafields.reviews_count }},
+"reviewCount": {{ product.metafields.opinew_metafields.reviews_count }},
 "ratingValue": {{ product.metafields.opinew_metafields.reviews_average }}
 }
 {%-endif-%}
@@ -466,7 +482,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.loox.num_reviews and product.metafields.loox.num_reviews != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.loox.num_reviews }},
+"reviewCount": {{ product.metafields.loox.num_reviews }},
 "ratingValue": {{ product.metafields.loox.avg_rating }}
 }
 {%- endif -%}
@@ -474,7 +490,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.kudobuzz.reviews_count and product.metafields.kudobuzz.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.kudobuzz.reviews_count }},
+"reviewCount": {{ product.metafields.kudobuzz.reviews_count }},
 "ratingValue": {{ product.metafields.kudobuzz.review_rating }}
 }
 {%- endif -%}
@@ -482,21 +498,21 @@ Organization and Website Schema Markup
 {%- if product.metafields.orankl.review_count and product.metafields.orankl.review_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.orankl.review_count }},
+"reviewCount": {{ product.metafields.orankl.review_count }},
 "ratingValue": {{ product.metafields.orankl.rating }}
 }
 {%- endif -%}
 {%- if product.metafields.okendo.RatingAndReviewAverageValue and product.metafields.okendo.RatingAndReviewAverageValue != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.okendo.RatingAndReviewCount }},
+"reviewCount": {{ product.metafields.okendo.RatingAndReviewCount }},
 "ratingValue": {{ product.metafields.okendo.RatingAndReviewAverageValue }}
 }
 {%- endif -%}
 {%- if product.metafields.vnreviews.reviewCount and product.metafields.vnreviews.reviewCount != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.vnreviews.reviewCount }},
+"reviewCount": {{ product.metafields.vnreviews.reviewCount }},
 "ratingValue": {{ product.metafields.vnreviews.ratingValue }}
 }
 {%- endif -%}
@@ -504,35 +520,35 @@ Organization and Website Schema Markup
 {%- if product.metafields.reviewscouk.rating and product.metafields.reviewscouk.rating != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.reviewscouk.total }},
+"reviewCount": {{ product.metafields.reviewscouk.total }},
 "ratingValue": {{ product.metafields.reviewscouk.rating }}
 }
 {%- endif -%}
 {%- if product.metafields and product.metafields.rivio.avg_rate and product.metafields.rivio.avg_rate != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.rivio.reviews_count }},
+"reviewCount": {{ product.metafields.rivio.reviews_count }},
 "ratingValue": {{ product.metafields.rivio.reviews_average }}
 }
 {%- endif -%}
 {%- if product.metafields.product_schema and product.metafields.product_schema.th_ratingCount and product.metafields.product_schema.th_ratingCount != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.product_schema.th_ratingCount }},
+"reviewCount": {{ product.metafields.product_schema.th_ratingCount }},
 "ratingValue": {{ product.metafields.product_schema.th_ratingValue }}
 }
 {%- endif -%}
 {%- if product.metafields.ssw.count_rate and product.metafields.ssw.count_rate != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.ssw.count_rate }},
+"reviewCount": {{ product.metafields.ssw.count_rate }},
 "ratingValue": {{ product.metafields.ssw.avg_rate }}
 }
 {%- endif -%}
 {%- if product.metafields.stamped.reviews_count and product.metafields.stamped.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.stamped.reviews_count }},
+"reviewCount": {{ product.metafields.stamped.reviews_count }},
 "ratingValue": {{ product.metafields.stamped.reviews_average }}
 }
 {%- endif -%}
@@ -540,7 +556,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.yotpo.reviews_count }},
+"reviewCount": {{ product.metafields.yotpo.reviews_count }},
 "ratingValue": {{ product.metafields.yotpo.reviews_average }}
 }
 {%- endif -%}
@@ -548,7 +564,7 @@ Organization and Website Schema Markup
 {%- if product.metafields.spr.reviews and product.metafields.spr.reviews contains "AggregateRating" -%}
 ,"aggregateRating": {
 "@type": "AggregateRating",
-"ratingCount": {{ product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' |first | plus: 0 }},
+"reviewCount": {{ product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' |first | plus: 0 }},
 "ratingValue": {{ product.metafields.spr.reviews | split: '"ratingValue": "' | last | split: '"' |first | plus: 0 }}
 }
 {%- endif -%}
