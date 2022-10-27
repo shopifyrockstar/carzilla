@@ -13,7 +13,7 @@
 *****************************************************************************************************************************
 
 {% endcomment %}
-n<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 7]><html lang="en" class="ie7 {% unless settings.responsive_design %}no-{% endunless %}responsive{% if settings.page_direction == 'RTL' %} rtl{% endif %}"{% if settings.page_direction == 'RTL' %} dir="rtl"{% endif %}><![endif]-->
 <!--[if IE 8]><html lang="en" class="ie8 {% unless settings.responsive_design %}no-{% endunless %}responsive{% if settings.page_direction == 'RTL' %} rtl{% endif %}"{% if settings.page_direction == 'RTL' %} dir="rtl"{% endif %}><![endif]-->
 <!--[if IE 9]><html lang="en" class="ie9 {% unless settings.responsive_design %}no-{% endunless %}responsive{% if settings.page_direction == 'RTL' %} rtl{% endif %}"{% if settings.page_direction == 'RTL' %} dir="rtl"{% endif %}><![endif]-->
@@ -49,9 +49,6 @@ n<!DOCTYPE html>
   <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}" as="style" media="none" onload="this.onload=null;this.media='all'">
   <link rel="stylesheet" href="{{ 'slick.theme.css' | asset_url }}" as="style" media="none" onload="this.onload=null;this.media='all'">
   {%- include 'head_script' -%}
-  {% comment %}
-  {{- 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js' | script_tag -}}
-  {% endcomment %}
   
   {{- 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' | script_tag -}}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" as="style" media="none" onload="this.onload=null;this.media='all'">
