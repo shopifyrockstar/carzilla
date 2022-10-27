@@ -3346,7 +3346,7 @@
             "type": "menu_parent",
             "settings": {
               "mi_text": "What's <span class=\"ampersand\">New<\/span>",
-              "mi_url": "https:\/\/carzilla-boutique-detailing.myshopify.com\/collections\/all-products?sort_by=created-descending",
+              "mi_url": "\/collections\/all-products",
               "mi_class": "",
               "mi_mobile": true,
               "mi_pos_right": false,

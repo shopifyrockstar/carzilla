@@ -47,7 +47,7 @@
                             {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
                             {% for v in ext_cat_in %}
                                 {% assign splitv = v | split :'|'%}
-                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                {% capture url %}/collections/{{ splitv[1] | replace: ".", "-" | strip }}{% endcapture %}
 
                                 <div class="cmenu row">
                                     <div class='col-sm-3'>
@@ -100,7 +100,7 @@
                             {% for v in ext_cat_in %}
                                 {% assign splitv = v | split :'|'%}
 
-                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                {% capture url %}/collections/{{ splitv[1] | replace: ".", "-" | strip }}{% endcapture %}
                                 <div class="cmenu row">
                                 {{ splitv[0] | link_to: url }}
                                 </div>
@@ -146,7 +146,7 @@
                             {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
                             {% for v in ext_cat_in %}
                                 {% assign splitv = v | split :'|'%}
-                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                {% capture url %}/collections/{{ splitv[1] | replace: ".", "-" | strip }}{% endcapture %}
                                 <div class="cmenu row">
                                     {{ splitv[0] | link_to: url }}
                                 </div>
@@ -192,7 +192,7 @@
                             {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
                             {% for v in ext_cat_in %}
                                 {% assign splitv = v | split :'|'%}
-                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                {% capture url %}/collections/{{ splitv[1] | replace: ".", "-" | strip }}{% endcapture %}
                                 <div class="cmenu row">
                                     {{ splitv[0] | link_to: url }}
                                 </div>
@@ -238,7 +238,7 @@
                             {% assign ext_cat_in = ex[1] | newline_to_br | split: '<br />' %}
                             {% for v in ext_cat_in %}
                                 {% assign splitv = v | split :'|'%}
-                                {% capture url %}/collections/all/{{ splitv[1] | strip }}{% endcapture %}
+                                {% capture url %}/collections/{{ splitv[1] | replace: ".", "-" | strip }}{% endcapture %}
                                 <div class="cmenu row">
                                     {{ splitv[0] | link_to: url }}
                                 </div>
