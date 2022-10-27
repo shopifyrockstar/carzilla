@@ -3476,7 +3476,7 @@
             "type": "submenu_shop",
             "settings": {
               "shop_ex_cat": "",
-              "shop_int_cat": "Alcantara;\nBrush | i.a.brush\nCleaner | i.a.clnr\nProtectant | i.a.prot\n---\nDash & Vinyl;\nCeramic | i.d.ceramic\nCleaner | i.d.clnr\nDetailer | i.d.detail\nProtectant | i.d.prot\nTowel | i.d.towel\nFloormats | i.d.floor\n---\nFabric;\nBrush | i.f.brush\nCleaner | i.f.clnr\nExtractor | i.f.extractor\nShampoo | i.f.shampoo\nStain | i.f.stain\nWaterproofing | i.f.waterprof\n---\nGeneral Cleaners;\nAPC | e.e.apc\nDegreaser | e.e.degrease\nDisinfectant | i.g.disinfect\n---\nLeather;\nBrush | i.l.brush\nCeramics | i.l.ceramic\nCleaner | i.l.clnr\nConditioner | i.l.condi\nProtectant | i.l.prot\nStain, Dye Transfer i.l.stain\n---\nOdor;\nAir Freshener | i.o.air\nOdor Eliminator | i.o.odor\nSmoke | i.o.smoke\n---\nWindow;\nAnti Fog | e.win.fog\nCeramic Coating | e.win.ceramic\nCleaner | e.win.cleaner\nPolish | e.win.polish\nSealant | e.win.sealant\nTowel | e.d.wintowel\nWaterspot | e.d.waterspot",
+              "shop_int_cat": "Alcantara;\nBrush | i.a.brush\nCleaner | i.a.clnr\nProtectant | i.a.prot\n---\nDash & Vinyl;\nCeramic | i.d.ceramic\nCleaner | i.d.clnr\nDetailer | i.d.detail\nProtectant | i.d.prot\nTowel | i.d.towel\nFloormats | i.d.floor\n---\nFabric;\nBrush | i.f.brush\nCleaner | i.f.clnr\nExtractor | i.f.extractor\nShampoo | i.f.shampoo\nStain | i.f.stain\nWaterproofing | i.f.waterprof\n---\nGeneral Cleaners;\nAPC | e.e.apc\nDegreaser | e.e.degrease\nDisinfectant | i.g.disinfect\n---\nLeather;\nBrush | i.l.brush\nCeramics | i.l.ceramic\nCleaner | i.l.clnr\nConditioner | i.l.condi\nProtectant | i.l.prot\nStain, Dye Transfer | i.l.stain\n---\nOdor;\nAir Freshener | i.o.air\nOdor Eliminator | i.o.odor\nSmoke | i.o.smoke\n---\nWindow;\nAnti Fog | e.win.fog\nCeramic Coating | e.win.ceramic\nCleaner | e.win.cleaner\nPolish | e.win.polish\nSealant | e.win.sealant\nTowel | e.d.wintowel\nWaterspot | e.d.waterspot",
               "shop_pt_cat": "",
               "shop_acc_cat": "",
               "shop_bt_cat": "",
@@ -3624,7 +3624,7 @@
             "type": "menu_parent",
             "settings": {
               "mi_text": "What's <span class=\"ampersand\">New<\/span>",
-              "mi_url": "https:\/\/carzilla-boutique-detailing.myshopify.com\/collections\/all-products?sort_by=created-descending",
+              "mi_url": "https:\/\/carzilla-boutique-detailing.myshopify.com\/collections\/all-products",
               "mi_class": "",
               "mi_mobile": false,
               "mi_pos_right": false,
