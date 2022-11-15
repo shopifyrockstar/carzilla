@@ -142,6 +142,107 @@
 .desktop-view{
   display:block;
 }
+.for-desktop.c-header{
+  display: block;
+}
+.for-mobile.c-header{
+  display: none;
+}
+@media (max-width:991px){
+  .for-desktop.c-header{
+    display: none;
+  }
+  .for-mobile.c-header{
+    display: block;
+    margin:0;
+  }
+  .for-mobile.c-header h1{
+    margin:0;
+  }
+  #shopify-section-product-template{
+    padding-top: 0 !important;
+  }
+  #shopify-section-product-template .product-page-section .product-info{
+    padding-top: 0;
+    margin-top: 0;
+  }
+  #shopify-section-product-template .product-page-section .product-info .product-summary .product-center.product{
+    margin-top: 0;
+  }
+  #shopify-section-product-template .product-page-section .product-info .variation-availability{
+    display: none;
+  }
+  #shopify-section-product-template .product-page-section .product-info .product-summary .product-center.product .product-single__price-product-template{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  #shopify-section-product-template .product-page-section .product-info .product-summary .product-center.product #price{
+    padding: 0;
+    margin-top: -10px;
+  }
+  #shopify-section-product-template .product-page-section .product-info .product-summary .product-center.product #price .price-new{
+    font-size: 20px;
+  }
+  #shopify-section-product-template .product-page-section .product-info .product-summary .product-center.product #price .money{
+    font-size: 20px;
+  }
+  #shopify-section-product-template .product-page-section .product-info .product-summary .product-center.product .product-form .variations_button{
+    display: flex;
+  }
+  #shopify-section-product-template .product-page-section .product-center.product .product-form .variations_button .quantity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #shopify-section-product-template .product-page-section .product-center.product .volume-discount-wrapper{
+    text-align: center;
+  }
+  #shopify-section-product-template .product-page-section .product-center.product .volume-discount-wrapper p{
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  #shopify-section-product-template .product-page-section .product-center.product .product-form{
+    margin-top: -10px;
+  }
+  #shopify-section-product-template .product-page-section .product-center.product .product-form .add_to_cart{
+    padding-top: 0;
+  }
+  #shopify-section-product-template .product-page-section .product-center.product .product-form .variations_button .quantity input[type="text"]{
+    padding: 0;
+  }
+  #shopify-section-product-template .product-page-section .product-center.product .product-form .variations_button .quantity a{
+    padding: 0 5px;
+  }
+  .product-info .product-thumbnails-bottom .slick-track{
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 100% !important;
+    transform: unset !important;
+  }
+  .product-info .product-thumbnails-bottom .product-image{
+    max-width: 30px;
+    width: 10px !important;
+    height: 10px !important;
+    background-color: lightgrey !important;
+    border: 1px solid lightgrey !important;
+    border-radius: 50%;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+  .product-info .product-thumbnails-bottom .product-image.slick-current{
+    background-color: black !important;
+  }
+  .product-info .product-thumbnails-bottom .product-image img{
+    width: 10px;
+    height: 10px;
+    display: none;
+  }
+  #shopify-section-product-template #quickview_product{
+    padding-top: 10px;
+  }
+}
+
 @media (max-width:767px){
   .mobile-view{
     display:block;
@@ -321,7 +422,6 @@
   justify-content: space-between;
 }
 
-
 .collection-banner img{
   display: block;
   width: 100%;
@@ -353,13 +453,14 @@
     top: 30px;
     right: 60px;
     margin: 0 !important;
+    display:none !important;
   }
   .header-type-7 #top .pattern >.container > .row #header-right i.icon-swym-wishlist:after{
     font-size: 150%;
   }
   .header-type-7 #top .pattern >.container > .row #header-right .my-account{
     position: absolute;
-    right: 33px;
+    right: 40px;
     top: 32px;
     margin: 0;
     width: 20px;
