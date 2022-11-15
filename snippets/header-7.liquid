@@ -30,13 +30,13 @@
             <div class="row">
               <!-- Header Left -->
               <div class="col-sm-4" id="header-left">
-                
+                {% comment  %}
                 <div class="mobile-view">
                   {% form 'currency' %}
                   {{ form | currency_selector }}
                   {% endform %}
                 </div>
-                
+                {% endcomment %}
                 <!-- Logo -->
                 <div class="logo">
                   <a href="{{shop.url}}" title="{{ shop.name | escape }}">

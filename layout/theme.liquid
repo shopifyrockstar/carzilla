@@ -3,7 +3,7 @@
 <!--[if IE 8]><html lang="en" class="ie8 {% unless settings.responsive_design %}no-{% endunless %}responsive{% if settings.page_direction == 'RTL' %} rtl{% endif %}"{% if settings.page_direction == 'RTL' %} dir="rtl"{% endif %}><![endif]-->
 <!--[if IE 9]><html lang="en" class="ie9 {% unless settings.responsive_design %}no-{% endunless %}responsive{% if settings.page_direction == 'RTL' %} rtl{% endif %}"{% if settings.page_direction == 'RTL' %} dir="rtl"{% endif %}><![endif]-->
 <!--[if !IE]><!--><html lang="en" class="{% unless settings.responsive_design %}no-{% endunless %}responsive{% if settings.page_direction == 'RTL' %} rtl{% endif %}"{% if settings.page_direction == 'RTL' %} dir="rtl"{% endif %}><!--<![endif]-->
-<head>
+<head>{% render 'pagefly-head' %}
   {% include 'shop-sheriff-amp' %}
   {% render 'critical-css' %}
 {% include 'booster-seo' %}
@@ -165,14 +165,11 @@
 
   <script> if(window._swat){ window._swat.initializeActionButtons(".product-grid"); }else{ window.SwymCallbacks = window.SwymCallbacks || []; window.SwymCallbacks.push(function(){ window._swat.initializeActionButtons(".product-grid"); }); } </script>
 
-
-{% if content_for_header contains 'product_label' %}{% include 'bss-product-label-js' %}{% include 'bss-label-style-css' %}{% endif %}
-
-  <div class="desktop-view">
+<div class="desktop-view">
   {% form 'currency' %}
     {{ form | currency_selector }}
   {% endform %}
-  </div>
+</div>
 
  {% if template contains 'product' or 'collections' %} 
   
@@ -218,5 +215,5 @@
   
 
 
-</body>
+{% if content_for_header contains 'product_label' %}{% include 'bss-product-label-js' %}{% include 'bss-label-style-css' %}{% include 'bss-product-label-fonts' %}{% endif %}</body>
 </html>
