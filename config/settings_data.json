@@ -3680,7 +3680,7 @@
           "mmenu_mobile": false,
           "mmenu_width": "col-md-9",
           "mmenu_orientation": "0",
-          "mmenu_submenu_appear": "0",
+          "mmenu_submenu_appear": "1",
           "mmenu_navigation_text": "Navigation",
           "mmenu_new_window": false,
           "mmenu_searchbar": false,

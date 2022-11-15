@@ -17,4 +17,11 @@
 .homepage-slideshow .slick-slide .bss_pl_img {
     visibility: hidden !important;
 }
-</style>
+</style><script>function fixBugForStores($, BSS_PL, parent, page, htmlLabel) { let appended = false; if (page == 'collections' && $(parent).hasClass('image')) {
+    $(parent).prepend(htmlLabel);
+    appended = true;
+}
+if (page == 'products' && $(parent).hasClass('photoswipe')) {
+    $(parent).prepend(htmlLabel);
+    appended = true;
+} return appended;}</script>
