@@ -27,7 +27,7 @@
 
 <div></div>
 
-<header class="product-page header c-header t-center">
+<header class="product-page header c-header t-center for-desktop">
     <h1 class="c-title">{{ product.title }}</h1>
 </header>
 
@@ -88,6 +88,9 @@
             {%- endif -%}
           </div>
         </div>
+        <header class="product-page header c-header t-center for-mobile">
+            <h1 class="c-title">{{ product.title }}</h1>
+        </header>
 {%- else -%}
 {%- comment -%} Paint Swatch Product Images {%- endcomment -%}
         <div class="paint-swatch-image col-md-12 col-sm-12">
