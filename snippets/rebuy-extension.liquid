@@ -10,10 +10,10 @@ document.addEventListener('rebuy:smartcart.ready', function(event){
 	// hide cart dropdown
 	$('#cart_content').hide();
   	let messages = Rebuy.SmartCart.settings.announcement_bar.messages;
-  	let remaining_amount = `You're $${((13000 - Rebuy.Cart.cart.total_price)/100).toFixed(2)} away from a Free Gift!`;
-  	if (Rebuy.Cart.cart.total_price < 13000 && messages.length < 2) {
+  	let remaining_amount = `You're $${((13500 - Rebuy.Cart.cart.total_price)/100).toFixed(2)} away from a Free Gift!`;
+  	if (Rebuy.Cart.cart.total_price < 13500 && messages.length < 2) {
       	messages.push(remaining_amount);
-  	} else if (Rebuy.Cart.cart.total_price > 13000 && messages.length < 2) {
+  	} else if (Rebuy.Cart.cart.total_price > 13500 && messages.length < 2) {
       	messages.push("Congrats! You've earned a Free Gift!");
   	}
 });
@@ -22,11 +22,11 @@ document.addEventListener('rebuy:smartcart.ready', function(event){
 // free gift logic
 document.addEventListener('rebuy:cart.change', function(event){
 	let messages = Rebuy.SmartCart.settings.announcement_bar.messages;
-  	let remaining_amount = `You're $${((13000 - Rebuy.Cart.cart.total_price)/100).toFixed(2)} away from a Free Gift!`;
- 	if (Rebuy.Cart.cart.total_price < 13000) {
+  	let remaining_amount = `You're $${((13500 - Rebuy.Cart.cart.total_price)/100).toFixed(2)} away from a Free Gift!`;
+ 	if (Rebuy.Cart.cart.total_price < 13500) {
     	messages[1] = remaining_amount;
       	console.log('%c messages array updated: ', 'color: lime;', messages);
-    } else if (Rebuy.Cart.cart.total_price > 13000){
+    } else if (Rebuy.Cart.cart.total_price > 13500){
 		messages[1] = "Congrats! You've earned a Free Gift!";
       	console.log('%c messages array updated, gwp unlocked: ', 'color: orange;', messages);
     }
